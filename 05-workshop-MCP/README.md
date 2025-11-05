@@ -1,543 +1,597 @@
-![Figura 1](img/figure1.png)
-
-
-![Figura 2](img/figure2.png)
-
-
-![Figura 3](img/figure3.png)
-
-
-![Figura 4](img/figure4.png)
-
-
-![Figura 5](img/figure5.png)
-
-
-![Figura 6](img/figure6.png)
-
-
-![Figura 7](img/figure7.png)
-
-
-![Figura 8](img/figure8.png)
-
-
-![Figura 9](img/figure9.png)
-
-
-![Figura 10](img/figure10.png)
-
-
-![Figura 11](img/figure11.png)
-
-
-![Figura 12](img/figure12.png)
-
-
-![Figura 13](img/figure13.png)
-
-
-![Figura 14](img/figure14.png)
-
-
-![Figura 15](img/figure15.png)
-
-
-![Figura 16](img/figure16.png)
-
-
-![Figura 17](img/figure17.png)
-
-
-![Figura 18](img/figure18.png)
-
-
-![Figura 19](img/figure19.png)
-
-
-![Figura 20](img/figure20.png)
-
-
-![Figura 21](img/figure21.png)
-
-
-![Figura 22](img/figure22.png)
-
-
-![Figura 23](img/figure23.png)
-
-
-![Figura 24](img/figure24.png)
-
-
-![Figura 25](img/figure25.png)
-
-
-![Figura 26](img/figure26.png)
-
-
-![Figura 27](img/figure27.png)
-
-
-![Figura 28](img/figure28.png)
-
-
-![Figura 29](img/figure29.png)
-
-
-![Figura 30](img/figure30.png)
-
-
-![Figura 31](img/figure31.png)
-
-
-![Figura 32](img/figure32.png)
-
-
-Servidor MCP de Oracle SQLcl con Oracle AI Database
-
 # Oracle SQLcl MCP Server with Oracle AI Database
+
+Guía paso a paso para configurar y utilizar el **servidor MCP de SQLcl** con un agente de IA (por ejemplo, Cline o Copilot) en **VS Code**, conectado a una base de datos **Oracle AI Database**.
+
+---
+
+## Índice
+
+- [Introducción](#introducción)  
+- [Objetivo del laboratorio](#objetivo-del-laboratorio)  
+- [Requisitos previos](#requisitos-previos)  
+- [Tarea 1: Descargar la cartera (wallet)](#tarea-1-descargar-su-cartera)  
+- [Tarea 2: Instalar la extensión Oracle SQL Developer para VS Code](#tarea-2-instalación-de-la-extensión-sql-developer-para-vscode)  
+- [Tarea 3: Instalación de la extensión Cline](#tarea-3-instalación-de-la-extensión-de-cline)  
+- [Tarea 4: Instalación de SQLcl](#tarea-4-instalación-de-sqlcl)  
+- [Tarea 5: Configuración de Cline con el servidor MCP SQLcl](#tarea-5-configuración-de-cline-con-el-servidor-mcp-sqlcl)  
+- [Tarea 6: Uso del servidor MCP SQLcl con Cline](#tarea-6-uso-del-servidor-mcp)  
+- [Registro de operaciones en DBTOOLS$MCP_LOG](#registro-de-operaciones-en-dbtoolsmcp_log)  
+
+---
 
 ## Introducción
 
-En este laboratorio, aprenderá a configurar y utilizar el servidor MCP SQLcl con un agente AI en VS Code. El servidor MCP SQLcl le permite conectar su base de datos Oracle AI a asistentes AI, ya sea Copilot, Cline, Claude Desktop o cualquier otra herramienta que admita el protocolo de contexto de modelo (MCP).
+En este laboratorio aprenderás a configurar y utilizar el **servidor MCP de SQLcl** con un agente de IA en **VS Code**. El servidor MCP SQLcl permite conectar tu base de datos **Oracle AI Database** a asistentes de IA, ya sea **GitHub Copilot, Cline, Claude Desktop** o cualquier otra herramienta que admita el protocolo **Model Context Protocol (MCP)**.
 
-El servidor MCP actúa como un puente entre la base de datos y las herramientas de IA, lo que le permite utilizar el lenguaje natural para interactuar con sus datos, ejecutar consultas SQL y ejecutar comandos de base de datos. En lugar de escribir SQL desde cero, puede describir lo que desea hacer y dejar que el asistente de IA maneje los detalles técnicos.
+El servidor MCP actúa como un **puente seguro** entre la base de datos y las herramientas de IA, permitiendo utilizar **lenguaje natural** para:
 
-Para esta demostración, usaremos VS Code con Copilot, pero los pasos también funcionan con otros agentes compatibles con MCP. Una vez configurado, podrás utilizar el lenguaje natural para enumerar conexiones, ejecutar scripts SQL y crear un juego de trivia simple.
+- Interactuar con tus datos  
+- Ejecutar consultas SQL  
+- Ejecutar comandos de administración de base de datos  
 
-Tiempo de laboratorio estimado: 20 minutos
+En lugar de escribir SQL desde cero, puedes **describir lo que deseas hacer** y dejar que el asistente de IA maneje los detalles técnicos.
 
-## Objetivo
+Para esta demostración usaremos **VS Code con Copilot y Cline**, pero los pasos también funcionan con otros agentes compatibles con MCP. Una vez configurado, podrás utilizar lenguaje natural para:
 
-Al final de este laboratorio, podrá:
+- Enumerar conexiones  
+- Ejecutar scripts SQL  
+- Crear un **juego de trivia** simple a partir de datos almacenados en la base de datos  
 
-Descargar y configurar SQLcl (con soporte de MCP)
+> ⏱ **Tiempo de laboratorio estimado:** 20 minutos
 
-Instalar y configurar las extensiones de SQL Developer y Cline para VS Code
+---
 
-Conectarse a la base de datos de Oracle AI mediante una cartera
+## Objetivo del laboratorio
 
-Configure los valores de MCP en VS Code
+Al final de este laboratorio serás capaz de:
 
-Utilice el servidor MCP SQLcl con un agente AI para mostrar las conexiones, ejecutar SQL y crear una tabla de juego de trivia
+- Descargar y configurar **SQLcl** (con soporte MCP).  
+- Instalar y configurar las extensiones **Oracle SQL Developer** y **Cline** para VS Code.  
+- Conectarte a **Oracle AI Database** mediante una **cartera (wallet)**.  
+- Configurar los valores de **MCP** en VS Code.  
+- Utilizar el servidor **MCP SQLcl** con un agente de IA para:
+  - Mostrar las conexiones disponibles.  
+  - Ejecutar sentencias SQL y scripts SQLcl.  
+  - Crear y poblar una tabla para un **juego de trivia**.
+
+---
 
 ## Requisitos previos
 
-En este laboratorio se asume que tiene:
+Este laboratorio asume que cuentas con lo siguiente:
 
-Oracle Java 17 o 21 instalado
+- **Oracle Java 17 o 21** instalado.  
+- Acceso a una **base de datos Oracle AI** (FreeSQL, LiveSQL o una base de datos autónoma con cartera).  
+- **Credenciales de cuenta Oracle** válidas.  
+- **Visual Studio Code (VS Code)** instalado en tu máquina.  
+- **Acceso a Internet**.
 
-Acceso a una base de datos Oracle AI (FreeSQL, LiveSQL o una base de datos autónoma con cartera)
+---
 
-Credenciales de cuenta Oracle
+## Tarea 1: Descargar su cartera
 
-VSCode instalado en su máquina
+> 💡 Si ya tienes la **wallet** de una base de datos de laboratorios anteriores, puedes pasar directamente a la **Tarea 2**.
 
-Acceso a Internet
+### ¿Qué es una cartera (wallet)?
 
+Una **cartera (wallet)** es un archivo seguro que contiene:
 
+- Credenciales de conexión  
+- Certificados necesarios para acceder a **Oracle Autonomous Database**
 
+Esta cartera garantiza que la conexión a la base de datos esté **cifrada y autenticada**.
 
+### ¿Por qué la necesitas?
 
+Vamos a utilizar la **cartera** para conectar la extensión de **Oracle SQL Developer para VS Code** a nuestra base de datos autónoma.
 
+### Pasos
 
-## Tarea 1: Descargar su cartera (si ya tienes la wallet de una BD de lab anteriores puedes seguir con el Tarea 2)
+1. En la página inicial de la base de datos autónoma, haz clic en la opción de **Database Connection** y descarga la **cartera (wallet)** de la base de datos.
 
-¿Qué es una cartera?  Una cartera es un archivo seguro que contiene las credenciales de conexión y los certificados necesarios para acceder a Oracle Autonomous Database. Garantiza que la conexión a la base de datos esté cifrada y autenticada.
+   ![Figura 8](img/figure8.png)
 
-Por qué lo necesita: vamos a utilizar la cartera para conectar la extensión de VSCode de SQL Developer a nuestra base de datos autónoma
+   ![Figura 25](img/figure25.png)
 
-En la página inicial de la base de datos autónoma, haga clic en la conexión a la base de datos y descargue la cartera de la base de datos.
+2. Proporciona una contraseña para la cartera. Puedes usar la que prefieras, pero **no la olvides**.  
+   Para este taller se sugiere usar:
 
+   ```text
+   Contraseña de la cartera: OracleAIworld2025
+   ```
 
+Luego haz clic en **Download** en la parte inferior derecha.
 
-Proporcione a la cartera una contraseña. Puedes hacer que tu contraseña sea lo que quieras, simplemente no la olvides. (Sugiero usar la misma contraseña para el taller) y hacer clic en Descargar en la parte inferior derecha
+![Figura 19](img/figure19.png)
 
-Contraseña: OracleAIworld2025
+3. **Verificar la descarga:** comprueba que se haya descargado un archivo `.zip` en tu computador (normalmente en la carpeta **Descargas**).
+   Este archivo contiene las **credenciales de la cartera**.
 
+---
 
+## Tarea 2: Instalación de la extensión SQL Developer para VSCode
 
-Verificar la descarga: compruebe que se haya descargado un archivo .zip en la computadora (normalmente en la carpeta Descargas). Este archivo contiene las credenciales de cartera.
+### ¿Qué hace esta extensión?
 
-## Tarea 2: Instalación de la extensión SQL Developer para el VSCode
+La extensión **Oracle SQL Developer** para VS Code permite:
 
-Qué hace esta extensión: Oracle SQL Developer Extension permite trabajar con bases de datos Oracle AI y gestionarlas en VS Code.
+* Trabajar con bases de datos **Oracle AI**
+* Gestionar conexiones, ejecutar consultas y scripts desde VS Code
 
-Por qué lo necesitas: esta extensión almacenará los detalles de conexión de tu base de datos
+### ¿Por qué la necesitas?
 
-Abra VS Code (VSCode), si no lo tienes descárgalo de Internet e instálalo ( ), luego de instalar procedemos a abrir VS Code y vaya a la vista Extensiones.
+Esta extensión almacenará los **detalles de conexión** de tu base de datos y será la base para que Cline, a través de SQLcl, pueda interactuar con ella.
 
-Busque "Oracle SQL Developer" y haga clic en Instalar. O instálelo directamente desde .
+### Pasos
 
+1. Abre **VS Code**. Si aún no lo tienes, descárgalo e instálalo desde:
 
+   ```text
+   https://code.visualstudio.com/download
+   ```
 
-Una vez instalada, abra la extensión SQL Developer en la barra de actividades.
+2. Una vez instalado, abre VS Code y ve a la vista **Extensions** (icono de cuadraditos en la barra lateral).
 
-Haga clic en Create Connection
+3. En el cuadro de búsqueda, escribe:
 
-Introduzca los detalles de conexión de cartera:
+   ```text
+   Oracle SQL Developer
+   ```
 
-nombre de conexión: AIWord-HOL
+   y haz clic en **Install** (o instálalo directamente desde el Marketplace de VS Code).
 
-usuario: ADMIN
+   ![Figura 26](img/figure26.png)
 
-contraseña: [contraseña que se definio en el despliegue de la BD]
+4. Una vez instalada la extensión, ábrela desde la barra de actividades (panel lateral izquierdo).
 
-marque la casilla para guardar la contraseña
+   ![Figura 1](img/figure1.png)
 
-Seleccione la lista desplegable de tipo de conexión. Seleccione: Cloud Wallet
+5. Haz clic en **Create Connection**.
 
-Haga clic en Choose file y seleccione la cartera
+   ![Figura 20](img/figure20.png)
 
-Pruebe la conexión para verificar que funciona y, a continuación, Guarde
+6. Introduce los detalles de la conexión de la cartera:
 
+   * **Connection name:** `AIWorld-HOL`
+   * **User:** `ADMIN`
+   * **Password:** `[contraseña que se definió en el despliegue de la BD]`
+   * Marca la casilla para **guardar la contraseña**.
+   * En **Connection Type**, selecciona: `Cloud Wallet`.
+   * Haz clic en **Choose file** y selecciona el archivo `.zip` de la cartera descargada en la Tarea 1.
 
+7. Haz clic en **Test** para verificar que la conexión funcione y luego en **Save**.
 
+   ![Figura 9](img/figure9.png)
 
+8. **Verificar la configuración:**
+   Debería aparecer la nueva conexión `AIWorld-HOL` en el panel de la extensión **Oracle SQL Developer**.
+   Si la prueba de conexión falla:
 
-Verificar la configuración: debería aparecer la nueva conexión "AIWorld-HOL" en el panel SQL Developer Extension. Si la prueba de conexión falla, compruebe las credenciales y el archivo de cartera.
+   * Revisa las credenciales (usuario/contraseña).
+   * Comprueba que seleccionaste el archivo de cartera correcto.
 
+---
 
+## Tarea 3: Instalación de la extensión de Cline
 
-## Tarea 3: Instalación de la extensión de cline
+**Cline** es un agente de **codificación de IA de código abierto** que se integra con VS Code.
 
-Cline es un agente de código abierto de codificación de IA.
+### Instalación
 
-En VS Code Extensions, busque "Cline" e instálelo.
+1. En VS Code, abre la vista de **Extensions** y busca:
 
-Abra Cline en la barra de actividades.
+   ```text
+   Cline
+   ```
 
+   Luego haz clic en **Install**.
 
+   ![Figura 32](img/figure33.png)
 
-Configure el proveedor de AI. Tiene varias opciones:
+2. Abre **Cline** desde la barra de actividades.
 
-Utilice el servicio gratuito de Cline (haga clic en Introducción gratuita)
+   ![Figura 2](img/figure2.png)
 
-Utilice su propia clave de API de OpenAI, Anthropic u otros proveedores
+### Configuración del proveedor de IA
 
-Uso de Oracle Code Assist con Oracle SSO
+Cline soporta varios proveedores de IA. Tienes, por ejemplo:
 
-Para esta demostración, mostraremos la opción gratuita. Haga clic en Introducción gratuita si desea utilizar el servicio de Cline.
+* Servicio gratuito de Cline
+* API keys propias (OpenAI, Anthropic, otros)
+* Uso de **Oracle Code Assist** con Oracle SSO
 
+Para esta demostración se utilizará la **opción gratuita**.
 
+1. Haz clic en **Introducción gratuita** si deseas utilizar el servicio gratuito de Cline.
 
-Si utiliza el servicio gratuito de Cline, se le pedirá que se registre. Siga las instrucciones para crear una cuenta (esto es opcional; puede omitirlo si tiene sus propias claves de API).
+   ![Figura 17](img/figure17.png)
 
-Configure el modelo de IA:
+2. Si utilizas el servicio gratuito de Cline, se te pedirá que te registres.
+   Sigue las instrucciones para crear una cuenta (esto es opcional si ya tienes tus propias claves de API).
 
-Haga clic en el icono de engranaje para abrir la configuración de cline
+3. Configura el **modelo de IA**:
 
-Haga clic en Configuración de API.
+   * Haz clic en el icono de engranaje para abrir la **configuración de Cline**.
+   * Haz clic en **API Settings**.
 
+   ![Figura 31](img/figure31.png)
 
+4. Selecciona tu **proveedor** y **modelo de IA** preferido.
+   Para la opción gratuita, elige uno de los modelos gratuitos disponibles de Cline.
 
-Seleccione su proveedor y modelo de IA preferido. Para la opción gratuita, elija uno de los modelos gratuitos disponibles de Cline.
+   ![Figura 5](img/figure5.png)
 
-
+---
 
 ## Tarea 4: Instalación de SQLcl
 
-Qué es SQLcl: SQLcl es la moderna interfaz de línea de comandos de Oracle para trabajar con bases de datos de Oracle AI. Incluye la funcionalidad del servidor MCP que permite a los asistentes de IA y agentes de codificación interactuar con la base de datos de forma segura.
+### ¿Qué es SQLcl?
 
-Por qué necesita la versión 25.2 o posterior: la función del servidor MCP se introdujo en la versión 25.2 de SQLcl, por lo que las versiones anteriores no funcionarán para este laboratorio.
+**SQLcl** es la interfaz moderna de línea de comandos de Oracle para trabajar con bases de datos Oracle.
+Incluye la funcionalidad de **servidor MCP**, que permite a asistentes de IA y agentes de codificación interactuar con la base de datos de forma segura.
 
-Opciones de instalación:
+> ⚠️ **Importante:**
+> Necesitas la versión **25.2 o posterior** de SQLcl.
+> La funcionalidad de servidor MCP se introdujo en la versión 25.2; versiones anteriores no funcionarán para este laboratorio.
 
-Opción 1: Descargar directamente (recomendado)
+### Opciones de instalación
 
-Descarga SQLcl (25.2 o posterior) desde . La herramienta SQLcl se ofrece bajo la .
+#### Opción 1: Descarga directa (recomendada)
 
-Descomprima la carpeta descargada en una ubicación que recordará. Para esta demostración, usaremos la carpeta Descargas, pero puedes elegir cualquier ubicación.
+1. Descarga SQLcl (versión **25.2 o posterior**) desde la página oficial de Oracle.
+   La herramienta SQLcl se ofrece bajo la **Licencia de uso libre (Free Use)**.
 
+2. Descomprime la carpeta descargada en una ubicación que recuerdes.
+   Para esta demostración se usará la carpeta **Descargas**, pero puedes elegir cualquier ubicación de tu preferencia.
 
+   ![Figura 11](img/figure11.png)
 
-Opción 2: Instalar a través de Homebrew (usuarios de Mac)
+#### Opción 2: Instalar a través de Homebrew (usuarios de macOS)
 
+En macOS, puedes instalar SQLcl con:
+
+```bash
 brew install --cask sqlcl
+```
 
-Verifique la instalación:
+### Verificar la instalación
 
-Si ha descargado el archivo zip, debería ver una carpeta denominada sqlcl con un directorio bin en su interior.
+* Si has descargado el archivo `.zip` y lo has descomprimido, deberías ver una carpeta llamada `sqlcl` con un directorio `bin` en su interior.
+* Si has utilizado Homebrew, `sql` debería estar disponible en tu `PATH` del sistema.
 
-Si ha utilizado Homebrew, SQLcl estará disponible en el sistema PATH
+> 💡 Toma nota de la **ruta completa** a la instalación de SQLcl.
+> La necesitarás en la **Tarea 5** para configurar Cline con el servidor MCP.
 
-Tenga en cuenta la ruta completa a la instalación de SQLcl: la necesitará para la siguiente tarea
+---
 
 ## Tarea 5: Configuración de Cline con el servidor MCP SQLcl
 
-Qué hace esta configuración: este paso conecta Cline (su asistente AI) con el servidor MCP SQLcl. Una vez configurado, Cline podrá ejecutar comandos de base de datos en su nombre mediante solicitudes de lenguaje natural.
+### ¿Qué hace esta configuración?
 
-Por qué es importante esta conexión: sin esta configuración, Cline no puede acceder a la base de datos. El servidor MCP actúa como un puente seguro, permitiendo a Cline ejecutar consultas SQL y gestionar las conexiones a la base de datos de forma segura.
+Este paso conecta **Cline (tu asistente de IA)** con el **servidor MCP de SQLcl**.
+Una vez configurado, Cline podrá:
 
-En VS Code, haga clic en la extensión Cline en la parte izquierda y haga clic en el ícono MCP Servers (Servidores MCP) en la parte superior de la pantalla.
+* Ejecutar comandos de base de datos en tu nombre.
+* Utilizar lenguaje natural para invocar herramientas (`list-connections`, `run-sqlcl`, `SQL`, etc.).
 
-Haga clic en Configurar y, a continuación, en Configurar servidores MCP. Esto abre un archivo de configuración de JSON.
+### ¿Por qué es importante?
 
-Actualice la configuración de JSON con la ruta SQLcl. Sustituya el texto del marcador de posición por la ruta real a la instalación de SQLcl desde la tarea 4.
+Sin esta configuración, Cline **no puede acceder** a la base de datos.
+El servidor MCP actúa como un **puente seguro**, permitiendo que Cline:
 
-Para SQLcl descargado: utilice la ruta de acceso a la carpeta descomprimida Para la instalación de Homebrew: utilice /opt/homebrew/bin/sql (o /usr/local/bin/sql en macs anteriores)
+* Ejecute consultas SQL.
+* Gestione las conexiones a la base de datos de forma controlada.
 
-Copiar
+### Pasos de configuración
 
-{
+1. En VS Code, haz clic en la extensión **Cline** en la barra izquierda y luego en el ícono **MCP Servers** en la parte superior.
 
-"mcpServers": {
+   ![Figura 28](img/figure28.png)
 
-"sqlcl": {
+2. Haz clic en **Configure** y luego en **Configure MCP Servers**.
+   Esto abrirá un archivo de configuración en formato **JSON**.
 
-"command": "[ACTUALIZAR ESTO CON SU RUTA A SQLCL]/bin/sql",
+   ![Figura 3](img/figure3.png)
 
-"args": ["-mcp"]
+3. Actualiza la configuración JSON con la ruta de SQLcl.
+   Sustituye el texto del marcador de posición por la ruta real a la instalación de SQLcl obtenida en la Tarea 4.
 
-}
+   * Para SQLcl descargado manualmente: usa la ruta a la carpeta descomprimida, por ejemplo:
+     `/Users/tu_usuario/Downloads/sqlcl/bin/sql`
+   * Para instalación con Homebrew en macOS Apple Silicon:
+     `/opt/homebrew/bin/sql`
+   * Para Macs más antiguos con Homebrew en `/usr/local`:
+     `/usr/local/bin/sql`
 
-}
+   ```json
+   {
+     "mcpServers": {
+       "sqlcl": {
+         "command": "[ACTUALIZAR ESTO CON SU RUTA A SQLCL]/bin/sql",
+         "args": ["-mcp"]
+       }
+     }
+   }
+   ```
 
-}
+   Rutas de ejemplo:
 
-Rutas de ejemplo:
+   * Descargado: **`/Users/yourname/Downloads/sqlcl/bin/sql`**
+   * Homebrew: **`/opt/homebrew/bin/sql`**
 
-Descargado: /Users/yourname/Downloads/sqlcl/bin/sql
+   ![Figura 21](img/figure21.png)
 
-Homebrew: /opt/homebrew/bin/sql
+   ![Figura 15](img/figure15.png)
 
+4. **Nota sobre Java:**
+   Para configurar y utilizar SQLcl es requisito previo tener **Java** instalado.
+   Si aparece una ventana solicitando su instalación, simplemente procede a instalar Java antes de continuar con la configuración.
 
+   ![Figura 10](img/figure10.png)
 
+5. Guarda el archivo de configuración JSON.
+   Deberías ver que `sqlcl` aparece en la sección **Installed MCP Servers**.
+   Si el botón aparece en rojo, haz clic en el botón de **refrescar**.
 
+   ![Figura 22](img/figure22.png)
 
-Nota: Para configurar y utilizar SQLcl, es requisito previo tener Java instalado.
+### Verificar la configuración
 
-En caso de que aparezca una ventana solicitando su instalación, simplemente procede a instalar Java antes de continuar con la configuración.
+* `sqlcl` debe aparecer en la lista **Installed MCP Servers**.
+* Si no lo ves, revisa la ruta del archivo en la configuración JSON.
+* Si hay un error, asegúrate de que la instalación de SQLcl funciona correctamente probándola en una terminal:
 
+```bash
+sql -v
+```
 
+Haz clic en cualquier parte de la barra de `sqlcl` para expandirla. Verás las herramientas de base de datos que Cline ahora puede utilizar:
 
-
-
-Guarde el archivo. Debe ver que SQLcl aparece en Installed MCP Servers. Si aparece el botón en rojo dar click en el bton de refrescar.
-
-Verifique la configuración:
-
-SQLcl debe aparecer en la lista "Installed MCP Servers"
-
-Si no lo ve, compruebe la ruta de archivo en la configuración de JSON.
-
-Si hay un error, asegúrese de que la instalación de SQLcl funciona probándola en un terminal
-
-Haga clic en cualquier parte de la barra SQLcl para ampliarla. Verá las herramientas de base de datos disponibles que Cline ahora puede utilizar:
-
-
+![Figura 18](img/figure18.png)
 
 Herramientas disponibles:
 
-list-connections: muestra las conexiones de base de datos guardadas.
+* `list-connections`: muestra las conexiones de base de datos guardadas.
+* `connect`: se conecta a una base de datos específica.
+* `disconnect`: se desconecta de forma segura de la base de datos.
+* `run-sqlcl`: ejecuta comandos SQLcl.
+* `SQL`: ejecuta consultas SQL.
 
-connect: se conecta a una base de datos específica
+Haz clic en **Done** para completar la configuración.
 
-desconectar: se desconecta de forma segura de la base de datos
+![Figura 12](img/figure12.png)
 
-run-sqlcl: ejecuta los comandos SQLcl.
+> ✅ Lo que has logrado:
+> Cline ahora puede comunicarse de forma segura con tu **base de datos Oracle AI** a través del servidor MCP de SQLcl.
+> Estás listo para empezar a utilizar **lenguaje natural** para interactuar con tus datos.
 
-SQL: ejecuta consultas SQL
-
-Haga clic en Listo para completar la configuración.
-
-
-
-Lo que ha logrado: Cline ahora puede comunicarse de forma segura con su base de datos Oracle AI a través del servidor MCP. ¡Está listo para empezar a utilizar el lenguaje natural para interactuar con sus datos!
+---
 
 ## Tarea 6: Uso del servidor MCP
 
-Lo que logrará: en esta tarea, utilizará el lenguaje natural para interactuar con la base de datos de Oracle AI mediante Cline y el servidor MCP. Enumerarás tus conexiones, cargarás datos de ejemplo y crearás una aplicación sencilla.
+En esta tarea utilizarás **lenguaje natural** para interactuar con **Oracle AI Database** mediante **Cline** y el servidor **MCP SQLcl**.
+Realizarás acciones como:
 
-Descripción de los Modos de Cline:
+* Enumerar conexiones
+* Cargar datos de ejemplo
+* Crear una **aplicación de trivia** sencilla
 
-Modo de plan: la clonación crea un plan y solicita su aprobación antes de ejecutarlo
+### Modos de Cline
 
-Modo Act: la clonación se ejecuta inmediatamente (se utiliza con precaución)
+Cline tiene dos modos principales:
 
-La seguridad es lo primero: mantenga siempre desactivada la opción "Aprobación automática" para revisar lo que Cline desea hacer antes de que actúe.
+* **Plan Mode:** Cline crea un plan y solicita tu aprobación antes de ejecutarlo.
+* **Act Mode:** Cline ejecuta inmediatamente las acciones (se debe usar con precaución).
 
-En Cline, asegúrese de que está en modo Plan y de que la opción "Aprobación automática" está desactivada.
+> 🔐 **La seguridad es lo primero:**
+> Mantén siempre desactivada la opción **"Aprobación automática"** para revisar lo que Cline desea hacer antes de que actúe.
 
+Asegúrate de:
 
+* Estar en **Plan Mode**.
+* Tener desactivada la opción **"Auto-Approve" / "Aprobación automática"**.
 
-⚠ IMPORTANTE: para conocer las mejores prácticas de seguridad, asegúrese de que la opción "Aprobación automática" esté desactivada.
+![Figura 29](img/figure29.png)
 
-Active el modo de plan. A continuación, en el área de entrada Tarea de Cline, escriba el siguiente mensaje:
-
-Copy
-
-Usando el servidor mcp sqlcl, muestre mis conexiones a la base de datos.
-
-
-
-Cline creará un plan y pedirá permiso para utilizar la herramienta list-connections. Revise la solicitud y haga clic en Aprobar si parece correcta.
-
-
-
-La salida devolverá la lista de conexiones disponibles para el servidor MCP SQLcl. Aquí podemos ver la conexión AIWorld-HOL que hemos realizado anteriormente en el laboratorio
-
-
-
-Qué estamos creando: una aplicación trivia con preguntas del historial de Oracle. En primer lugar, necesitamos crear los datos. Cree un nuevo archivo en VS Code denominado trivia-data.sql y copie este script:
-
-(haga clic en) SQL Script
-
-
-
-Copiar: Borrar la tabla si ya existe (opcional para un restablecimiento limpio)
-
-DROP TABLE si existe trivia_questions CASCADE CONSTRAINTS;
-
-
-
--- Crear la tabla de trivia
-
-CREAR TABLA trivia_questions (
-
-id            NUMBER GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY (Clave principal),
-
-question_text VARCHAR2(500) NO NULO,
-
-answer_text   VARCHAR2(200) NO NULO,
-
-categoría      VARCHAR2(50)  DEFAULT 'Oracle History',
-
-dificultad    VARCHAR2(20)  DEFAULT 'Medium'
-
-);
-
-
-
--- Insertar trivia de historial de Oracle
-
-INSERT INTO trivia_questions (question_text, answer_text, dificultad) VALUES
-
-('¿En qué año se fundó Oracle?', '1977', 'Medio');
-
-
-
-INSERT INTO trivia_questions (question_text, answer_text, dificultad) VALUES
-
-('¿Qué versión principal de Oracle Database introdujo PL/SQL?', 'Oracle 6', 'Medium');
-
-
-
-INSERT INTO trivia_questions (question_text, answer_text, dificultad) VALUES
-
-('¿Qué versión introdujo Real Application Clusters (RAC)?', 'Oracle 9i', 'Medium');
-
-
-
-INSERT INTO trivia_questions (question_text, answer_text, dificultad) VALUES
-
-('Oracle 10g hizo hincapié en qué modelo de computación en su marca?', 'Grid computing', 'Easy');
-
-
-
-INSERT INTO trivia_questions (question_text, answer_text, dificultad) VALUES
-
-('Oracle 12c introdujo una nueva arquitectura para la consolidación. ¿Cómo se llama?', 'Multitenant (CDB/PDB)', 'Easy');
-
-
-
-INSERT INTO trivia_questions (question_text, answer_text, dificultad) VALUES
-
-('¿Qué empresa adquirió Oracle en 2010 que lo convirtió en administrador de Java y MySQL?', 'Sun Microsystems', 'Easy');
-
-
-
-INSERT INTO trivia_questions (question_text, answer_text, dificultad) VALUES
-
-('Exadata, sistema de ingeniería de Oracle para bases de datos, debutó en qué década?', '2000s (2008)', 'Medium');
-
-
-
-INSERT INTO trivia_questions (question_text, answer_text, dificultad) VALUES
-
-('¿En qué año se anunció por primera vez la base de datos autónoma?', '2017', 'Medio');
-
-
-
-INSERT INTO trivia_questions (question_text, answer_text, dificultad) VALUES
-
-('¿Cuál es el nombre interno del motor relacional que inspiró el nombre del producto original de Oracle?', 'Oracle (de un nombre en clave de proyecto de la CIA)', 'Hard');
-
-
-
-INSERT INTO trivia_questions (question_text, answer_text, dificultad) VALUES
-
-('¿Quién fue el primer cliente de Oracle?', 'La CIA', 'Medio');
-
-
-
-INSERT INTO trivia_questions (question_text, answer_text, dificultad) VALUES
-
-('¿Qué nombre de versión de Oracle introdujo el concepto de "c" para la nube?', 'Oracle 12c', 'Easy');
-
-
-
--- Guardar los datos
-
-CONFIRMAR;
-
-Guarde el archivo en VS Code.
-
-
-
-Ahora pida a Cline que cargue los datos en la base de datos. Introduzca esta petición de datos:
-
-Copie el comando
-
-Utiliza run-sqlcl para cargar el @/trivia-data.sql en la conexión a la base de datos AIWorld-HOL
-
-Revise el plan: Cline le mostrará lo que desea hacer. Esta es su oportunidad para verificar los comandos SQL antes de ejecutarlos. Haga clic en Aprobar si todo parece correcto.
-
-Verificar que se han cargado los datos: el servidor MCP debe confirmar la ejecución correcta y debe ver la confirmación de que se ha creado la tabla y se han insertado los datos.
-
-
-
-Ahora vamos a utilizar nuestra base de datos para construir algo útil. Introduzca esta petición de datos:
-
-CopyNow
-
-crearme una aplicación web de trivia simple para una presentación de conferencia. La aplicación debe mostrar las preguntas y los datos que almacenamos en la base de datos. En aras de la simplicidad, hacer un sitio estático.
-
-Revise con atención: Cline creará un plan para crear la aplicación. Revise las consultas SQL que planea utilizar para asegurarse de que coinciden con la estructura de datos.
-
-
-
-
-
-CopyNow
-
-respóndeme la siguiente pregunta " Which release introduced Real Application Clusters (RAC)?" utilizando la tabla trivia_Questions
-
-
-
-
-
-⚠ Advertencia: Revise siempre las sentencias SQL que Cline desea ejecutar. Puede modificar la petición de datos para que sea más específica sobre qué consultas utilizar.
-
-Qué debe ver: Cline creará una aplicación de trivia de trabajo utilizando los datos de la base de datos, lo que demuestra el poder de la interacción de la base de datos en lenguaje natural.
-
-Desconectar de forma segura: cuando termine, solicite a Cline que cierre la conexión a la base de datos:
-
-CopyPlease
-
-desconéctese de la conexión a la base de datos.
-
-Apruebe la solicitud de desconexión para garantizar una limpieza adecuada.
-
-
-
-
-
-El servidor MCP SQLcl registra todas las operaciones en la tabla DBTOOLS$MCP_LOG. Puede consultar esta tabla para ver un historial de todos los scripts SQL, PL/SQL y ejecutados en su nombre.
-
-
-
+> ⚠️ **IMPORTANTE:**
+> Para seguir las buenas prácticas de seguridad, asegúrate de que la opción **"Aprobación automática"** esté desactivada.
 
 ---
-**Confidential – Oracle Internal**
+
+### 6.1. Listar conexiones mediante lenguaje natural
+
+Activa el **Plan Mode**.
+En el área de entrada de tareas de Cline, escribe el siguiente mensaje:
+
+```text
+Usando el servidor MCP SQLcl, muestre mis conexiones a la base de datos.
+```
+
+![Figura 6](img/figure6.png)
+
+Cline creará un plan y pedirá permiso para utilizar la herramienta `list-connections`.
+Revisa la solicitud y haz clic en **Approve** si todo parece correcto.
+
+![Figura 23](img/figure23.png)
+
+La salida devolverá la lista de conexiones disponibles para el servidor MCP SQLcl.
+Aquí puedes ver, por ejemplo, la conexión `AIWorld-HOL` que se creó anteriormente en el laboratorio:
+
+![Figura 16](img/figure16.png)
+
+---
+
+### 6.2. Crear datos de prueba para la aplicación de trivia
+
+El objetivo es crear una **aplicación de trivia** con preguntas de la historia de Oracle.
+Primero necesitamos crear los datos en la base de datos.
+
+1. Crea un nuevo archivo en VS Code llamado:
+
+   ```text
+   trivia-data.sql
+   ```
+
+2. Descarga o consulta el script desde:
+
+   ```text
+   SQL Script:
+   https://oracle-livelabs.github.io/database/db-23ai-fundamentals/ai-world-2025/trivia-data.sql
+   ```
+
+3. Copia el siguiente contenido en `trivia-data.sql`.
+   Este script eliminará la tabla (si existe), creará la tabla de trivia y cargará las preguntas:
+
+```sql
+-- Borrar la tabla si ya existe (opcional para un restablecimiento limpio)
+DROP TABLE trivia_questions CASCADE CONSTRAINTS;
+
+-- Crear la tabla de trivia
+CREATE TABLE trivia_questions (
+   id            NUMBER GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,
+   question_text VARCHAR2(500) NOT NULL,
+   answer_text   VARCHAR2(200) NOT NULL,
+   categoria     VARCHAR2(50)  DEFAULT 'Oracle History',
+   dificultad    VARCHAR2(20)  DEFAULT 'Medium'
+);
+
+-- Insertar trivia de historial de Oracle
+INSERT INTO trivia_questions (question_text, answer_text, dificultad) VALUES
+('¿En qué año se fundó Oracle?', '1977', 'Medium');
+
+INSERT INTO trivia_questions (question_text, answer_text, dificultad) VALUES
+('¿Qué versión principal de Oracle Database introdujo PL/SQL?', 'Oracle 6', 'Medium');
+
+INSERT INTO trivia_questions (question_text, answer_text, dificultad) VALUES
+('¿Qué versión introdujo Real Application Clusters (RAC)?', 'Oracle 9i', 'Medium');
+
+INSERT INTO trivia_questions (question_text, answer_text, dificultad) VALUES
+('Oracle 10g hizo hincapié en qué modelo de computación en su marca?', 'Grid computing', 'Easy');
+
+INSERT INTO trivia_questions (question_text, answer_text, dificultad) VALUES
+('Oracle 12c introdujo una nueva arquitectura para la consolidación. ¿Cómo se llama?', 'Multitenant (CDB/PDB)', 'Easy');
+
+INSERT INTO trivia_questions (question_text, answer_text, dificultad) VALUES
+('¿Qué empresa adquirió Oracle en 2010 que lo convirtió en administrador de Java y MySQL?', 'Sun Microsystems', 'Easy');
+
+INSERT INTO trivia_questions (question_text, answer_text, dificultad) VALUES
+('Exadata, sistema de ingeniería de Oracle para bases de datos, debutó en qué década?', '2000s (2008)', 'Medium');
+
+INSERT INTO trivia_questions (question_text, answer_text, dificultad) VALUES
+('¿En qué año se anunció por primera vez la base de datos autónoma?', '2017', 'Medium');
+
+INSERT INTO trivia_questions (question_text, answer_text, dificultad) VALUES
+('¿Cuál es el nombre interno del motor relacional que inspiró el nombre del producto original de Oracle?', 'Oracle (de un nombre en clave de proyecto de la CIA)', 'Hard');
+
+INSERT INTO trivia_questions (question_text, answer_text, dificultad) VALUES
+('¿Quién fue el primer cliente de Oracle?', 'La CIA', 'Medium');
+
+INSERT INTO trivia_questions (question_text, answer_text, dificultad) VALUES
+('¿Qué nombre de versión de Oracle introdujo el concepto de "c" para la nube?', 'Oracle 12c', 'Easy');
+
+-- Guardar los datos
+COMMIT;
+```
+
+4. Guarda el archivo `trivia-data.sql` en VS Code.
+
+![Figura 30](img/figure30.png)
+
+---
+
+### 6.3. Cargar los datos utilizando Cline y run-sqlcl
+
+Pídele a Cline que cargue los datos en la base de datos.
+En el área de entrada de Cline, escribe:
+
+```text
+Utiliza run-sqlcl para cargar el script @/trivia-data.sql en la conexión a la base de datos AIWorld-HOL.
+```
+
+Revisa el plan: Cline mostrará lo que desea hacer.
+Esta es tu oportunidad para verificar los comandos SQL antes de ejecutarlos.
+Haz clic en **Approve** si todo es correcto.
+
+El servidor MCP debe confirmar la ejecución correcta y deberías ver que:
+
+* Se creó la tabla `trivia_questions`.
+* Se insertaron las filas con datos de prueba.
+
+![Figura 4](img/figure4.png)
+
+---
+
+### 6.4. Crear una aplicación web de trivia
+
+Ahora utilizaremos la base de datos para construir algo útil.
+
+Pídele a Cline lo siguiente:
+
+```text
+Créame una aplicación web de trivia simple para una presentación de conferencia. 
+La aplicación debe mostrar las preguntas y los datos que almacenamos en la base de datos. 
+En aras de la simplicidad, haga un sitio estático.
+```
+
+Cline creará un plan para generar la aplicación.
+Revisa cuidadosamente las consultas SQL que planea utilizar para asegurarte de que coincidan con la estructura de datos de `trivia_questions`.
+
+![Figura 13](img/figure13.png)
+
+![Figura 32](img/figure32.png)
+
+---
+
+### 6.5. Consultar la tabla de trivia con lenguaje natural
+
+Ejemplo de petición:
+
+```text
+Respóndeme la siguiente pregunta: "Which release introduced Real Application Clusters (RAC)?" utilizando la tabla trivia_questions.
+```
+
+![Figura 7](img/figure7.png)
+
+> ⚠️ **Advertencia:**
+> Revisa siempre las sentencias SQL que Cline desea ejecutar.
+> Puedes ajustar la petición de datos para hacerla más específica sobre qué consultas utilizar.
+
+**Qué deberías ver:**
+Cline creará una **aplicación de trivia funcional** utilizando los datos de la base de datos, demostrando el poder de la interacción en **lenguaje natural** con Oracle AI Database a través de SQLcl y MCP.
+
+---
+
+### 6.6. Desconexión segura
+
+Cuando termines, pide a Cline que cierre la conexión a la base de datos para limpiar los recursos:
+
+```text
+Desconéctese de la conexión a la base de datos.
+```
+
+Aprueba la solicitud de desconexión para garantizar una finalización adecuada de la sesión.
+
+![Figura 24](img/figure24.png)
+
+---
+
+## Registro de operaciones en DBTOOLS$MCP_LOG
+
+El servidor MCP SQLcl registra todas las operaciones en la tabla:
+
+```sql
+DBTOOLS$MCP_LOG
+```
+
+Puedes consultar esta tabla para ver un historial de:
+
+* Scripts SQL ejecutados
+* Sentencias PL/SQL
+* Acciones realizadas por Cline en tu nombre a través del servidor MCP
+
+---
+
+**Gracias**
+
+---
+
