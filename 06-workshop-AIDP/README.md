@@ -11,7 +11,7 @@ Hoy en dia las empresas estan buscando trabajar sobre una arquitectura medallon.
 
 ## Aprovisionamiento del Servicio AIDP
 
-1. Acceder a Oracle Cloud, buscar la opcion **Analytics AI**
+1. Acceder a Oracle Cloud, buscar la opcion **Analytics AI**<br>
 ![Analytics AI](img/Picture1.png)
 2. Crear el servicio **AI Data Platform** llamado `AIWORKSHOP`.<p>
 Debes ingresar al botón de crear `Create AI Data Platform`. En la primera sección indicar el nombre del servicio “AIWORKSHOP” y una descripción opcional.
