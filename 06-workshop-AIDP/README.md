@@ -184,7 +184,7 @@ Vamos a crear un nuevo catalogo `Create Catalog`<br>
 - Debes dar click en la opción `download wallet` y darle un password a la descarga del archivo. Puedes usar la misma clave del usuario que creamos para la base de datos.
 `Clave=Oracle1234##`<br>
 ![AIDP Arquitectura Medallon](img/Picture56.png)<p>
-Luego de agregar el wallet en la pantalla de External Catalog podras seleccionar `Service`y se recomienda usar `médium` en el nombre del servicio de los existentes en la lista de servicios.
+Luego de agregar el wallet en la pantalla de External Catalog podras seleccionar `Service`y se recomienda usar `médium` en el nombre del servicio de los existentes en la lista de servicios.<br>
 ![AIDP Arquitectura Medallon](img/Picture56B.png)<p>
 ![AIDP Arquitectura Medallon](img/Picture57.png)<p>
 En el boton **Test Conection** puedes probar la conexion a la base de datos y si funciona das **click** en el boton `Create`<br>
