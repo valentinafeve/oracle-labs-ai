@@ -194,7 +194,7 @@ La tarea de este ultimo notebook es hacer predicciones con el modelo entrenado y
 Vamos a abrir el ultimo notebook **04_PredictCustomerChurn.ipynb**<p>
 ![AIDP Arquitectura Medallon](img/Picture58.png)<p>
 
-Volvemos a verificar que el cluster este atachado a el notebook.
+Volvemos a verificar que el cluster este atachado a el notebook.<br>
 ![AIDP Arquitectura Medallon](img/Picture59.png)<p>
 Vamos a importar las librerias necesarias para ejecutar el notebook.<br>
 ![AIDP Arquitectura Medallon](img/Picture60.png)<p>
