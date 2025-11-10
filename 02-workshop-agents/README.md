@@ -24,7 +24,7 @@ Luego que la maquina esta provisionada darle `click` en el hiperviculo para trab
 
 ![Data Science](images/imagen5.png)<p>
 
-Y dentro de esta opcion vamos a ver un boton en la parte superior de `OPEN` que abre el notebook de Jupyter<br>
+Y dentro de esta opción vamos a ver un boton en la parte superior de `OPEN` que abre el notebook de Jupyter, donde te pedira que te autentiques para poder acceder a los servicios<br>
 
 ![Data Science](images/imagen6.png)<p>
 
