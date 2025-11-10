@@ -41,10 +41,10 @@ Cuando se abre una nueva pestaña en su navegador 🌐 el servicio se muestra co
 
 De los archivos que se encuentran en este git debes descargarlos a tu computador 💻:
 
-- 📓 **notebook01**
-- 📓 **notebook02** 
-- 📓 **notebook03**
-- 🖼️ **imagen**
+- 📓 **01_GenAI_Langchain.ipynb**
+- 📓 **02_multimodal_genai_local.ipynb** 
+- 📓 **03_genai_local.ipynb**
+- 🖼️ **demo-image.jpeg**
 
 Luego de tenerlo en tu PC vas a cargarlos al servicio de DataScience tomando los archivos y los arrastras ⬆️ a la zona indicada en la siguiente imagen.
 
