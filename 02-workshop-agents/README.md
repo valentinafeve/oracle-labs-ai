@@ -2,7 +2,7 @@
 ## Tarea 1 Despliegue Servicio
 Dentro del menú principal de OCI vamos a la opción Analytics & AI y buscamos la opción en **"Machine Learning"** y damos click en la opción de Data Science.<br>
 ![Menú Principal](images/imagen1.png)<p>
-Luego que ingresas a la opción de Data Science debes darle click en `Create Project`<br>
+Seleccionas el compartment (creado previamente) donde dejaremos el proyecto y luego que ingresas a la opción de Data Science debes darle click en `Create Project`<br>
 ![Data Science](images/imagen2.png)<p>
 Indicar el compartment y nombre del proyecto `AIWORKSHOP`
 ![Data Science](images/imagen3.png)<p>
