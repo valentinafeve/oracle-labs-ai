@@ -1,53 +1,60 @@
-# Lab 02 Uso de Servicio DataScience y Modelos de IA Generativa
-## Tarea 1 Despliegue Servicio
-Dentro del menú principal de OCI vamos a la opción Analytics & AI y buscamos la opción en **"Machine Learning"** y damos click en la opción de Data Science.<br>
+# 🧪 Lab 02 Uso de Servicio DataScience y Modelos de IA Generativa
+## 🚀 Tarea 1 Despliegue Servicio
+Dentro del menú principal de OCI 🔗 vamos a la opción **Analytics & AI** y buscamos la opción en **"Machine Learning"** 🤖 y damos click en la opción de **Data Science**.
 
-![Menú Principal](images/imagen1.png)<p>
-Seleccionas el compartment (creado previamente) donde dejaremos el proyecto y luego que ingresas a la opción de Data Science debes darle click en `Create Project`<br>
+![Menú Principal](images/imagen1.png)
 
-![Data Science](images/imagen2.png)<p>
-Indicar el compartment y nombre del proyecto `AIWORKSHOP`
+Luego que ingresas a la opción de Data Science debes darle click en `Create Project` ➕
 
-![Data Science](images/imagen3.png)<p>
+![Data Science](images/imagen2.png)
 
-Dentro del proyecto vamos a crear un notebook de Data Science.
-Dar click en el botón `Create notebook session`<br>
+Indicar el compartment y nombre del proyecto `AIWORKSHOP` 🏷️
+
+![Data Science](images/imagen3.png)
+Dentro del proyecto vamos a crear un notebook de Data Science 📓.
+
+Dar click en el botón `Create notebook session` 🆕
+
 Debes hacer los siguientes pasos:
-- Indicar un nombre para el **notebook**
-- Cambiar la configuración del `Shape de Cómputo (agregar 2 OCPUs y 32 RAM)`
-- En el campo Block Storage indicar `100 GB`
-- Mantener las otras opciones tal cual vienen y dar click en el botón `Create`<br>
+- 📝 Indicar un nombre para el **notebook**
+- ⚙️ Cambiar la configuración del `Shape de Cómputo (agregar 2 OCPUs y 32 RAM)`
+- 💾 En el campo Block Storage indicar `100 GB`
+- ✅ Mantener las otras opciones tal cual vienen y dar click en el botón `Create`
 
-![Data Science](images/imagen4.png)<p>
+![Data Science](images/imagen4.png)
 
-Luego que la maquina esta provisionada darle `click` en el hiperviculo para trabajar con DataScience.
+### 🖥️ Acceso al Notebook
 
-![Data Science](images/imagen5.png)<p>
+Luego que la máquina está provisionada ⏳ darle `click` en el hipervínculo para trabajar con DataScience.
 
-Y dentro de esta opción vamos a ver un boton en la parte superior de `OPEN` que abre el notebook de Jupyter, donde te pedira que te autentiques para poder acceder a los servicios.<br>
+![Data Science](images/imagen5.png)
 
-![Data Science](images/imagen6.png)<p>
+Y dentro de esta opción vamos a ver un botón en la parte superior de `OPEN` 🔓 que abre el notebook de Jupyter.
 
-Cuando se abre una nueva pestaña en su navegador el servicio se muestra como un notebook de jupyter de la siguiente manera.<br>
+![Data Science](images/imagen6.png)
 
-![Data Science](images/imagen7.png)<p>
+Cuando se abre una nueva pestaña en su navegador 🌐 el servicio se muestra como un notebook de Jupyter de la siguiente manera.
 
-## Copia Archivos
-- De los archivos que se encuentran en este lab en el git, con extension *.ipynb y con prefijo ## debes descargarlos a tu computador.
-    - 01_notebook
-    - 02_notebook
-    - 03_notebook
-    - imagen(unico archivo)
-- Luego de tenerlo en tu PC vas a cargarlos al servicio de Datascience tomando los archivos y los arrastras a la zona indicada en la siguiente imagen.<p>
+![Data Science](images/imagen7.png)
 
-![Data Science](images/imagen8.png)<p>
+## 📂 Copia de Archivos
+
+De los archivos que se encuentran en este git debes descargarlos a tu computador 💻:
+
+- 📓 **notebook01**
+- 📓 **notebook02** 
+- 📓 **notebook03**
+- 🖼️ **imagen**
+
+Luego de tenerlo en tu PC vas a cargarlos al servicio de DataScience tomando los archivos y los arrastras ⬆️ a la zona indicada en la siguiente imagen.
+
+![Data Science](images/imagen8.png)
 
 ---
-## Copia del archivo .pem
-La llave privada generada en el setup inical que se guardo el archivo `Tuusuario@dominio.com-2025-11-10T20_58_44.661Z.pem`.<br>Tambien de cargarse de la mimsa manera que con los notebooks.
+## 🔐 Copia del archivo .pem
 
-## Iniciar el Lab
-A continuación, deberás abrir los notebooks en orden ascendente y ejecutar cada una de las celdas paso a paso (favor leer atentamente las instrucciones).
-Si llegas a encontrar algún error o inconveniente durante la ejecución, el equipo de Oracle estará disponible para brindarte apoyo.
+La llave privada generada en el setup inicial que se guardó en el archivo `.pem` 🗝️.
 
+También debe cargarse de la misma manera que con los notebooks ⬆️.
 
+> **⚠️ Importante:** El archivo debe tener el siguiente nombre dentro de DataScience para poder usarlo: `oci_api_key.pem`. Puedes renombrarlo antes de subir dicho archivo al servicio.
