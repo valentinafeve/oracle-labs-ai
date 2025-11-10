@@ -29,6 +29,8 @@ El **API Key** permite autenticar de forma segura las conexiones con los servici
 
 6. Visualice la configuración del archivo generado y **copie la información necesaria**, ya que se utilizará posteriormente en la configuración de acceso.
 
+   ![Generar API Key](images/5preview.png)
+
 ---
 
 ## 🗂️ 2. Creación de un Compartimiento para el Trabajo
@@ -67,6 +69,8 @@ Antes de iniciar sesiones en los blocs de notas de Data Science, es necesario de
 
 2. Haga clic en **Crear política**.
 
+   ![Menú Políticas](images/2crearpolicies.png)
+
 3. Complete los siguientes campos:
    - **Nombre:** `data-science-policy`
    - **Descripción:** Política para los usuarios y el servicio de ciencia.
@@ -91,9 +95,3 @@ Antes de iniciar sesiones en los blocs de notas de Data Science, es necesario de
 - Revise que las políticas estén correctamente aplicadas antes de ejecutar notebooks o scripts en Data Science.
 
 ---
-
-## ⚠️ Confidencialidad
-
-**Confidential – Oracle Internal**
-
-Este documento contiene información confidencial y es de uso exclusivo interno de Oracle o de usuarios autorizados.
