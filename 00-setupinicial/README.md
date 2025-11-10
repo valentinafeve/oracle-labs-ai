@@ -15,14 +15,17 @@ El **API Key** permite autenticar de forma segura las conexiones con los servici
 ### Pasos
 
 1. Abra el ícono del menú en la parte superior izquierda de la consola y seleccione su **perfil de usuario**.
+   
    ![Menú Perfil de Usuario](images/api_key_profile.png)
 
 2. Ingrese en la pestaña **Tokens and Keys**.
+   
    ![Tokens and Keys](images/api_key_tokens.png)
 
 3. En la sección **API Keys**, haga clic en **Adicionar**.
 
 4. Seleccione **Generar API Key** y descargue los dos archivos que aparecen en la parte inferior de la ventana.
+   
    ![Generar API Key](images/api_key_generate.png)
 
 5. Finalmente, haga clic en **ADD** para completar el proceso.
@@ -40,9 +43,11 @@ El **compartimiento** (Compartment) permite organizar y aislar los recursos de s
 ### Pasos
 
 1. En el menú de navegación, seleccione **Identidad y seguridad → Compartimentos**.
+   
    ![Menú Compartimentos](images/compartments_menu.png)
 
 2. Haga clic en **Crear compartimento**.
+   
    ![Crear Compartimento](images/compartments_create.png)
 
 3. Asigne un nombre al nuevo compartimento, por ejemplo:  
@@ -54,6 +59,7 @@ El **compartimiento** (Compartment) permite organizar y aislar los recursos de s
 4. Presione **Crear compartimento**.
 
 5. Confirme que el nuevo compartimento aparece en la lista.
+   
    ![Compartimento creado](images/compartments_list.png)
 
 ---
@@ -65,6 +71,7 @@ Antes de iniciar sesiones en los blocs de notas de Data Science, es necesario de
 ### Pasos
 
 1. En el menú de navegación, diríjase a **Identidad y seguridad → Políticas**.
+   
    ![Menú Políticas](images/policies_menu.png)
 
 2. Haga clic en **Crear política**.
@@ -84,6 +91,7 @@ Antes de iniciar sesiones en los blocs de notas de Data Science, es necesario de
    ```
 
 5. Haga clic en **Crear** para guardar la política.
+   
    ![Crear Política](images/policies_create.png)
 
 ---
