@@ -20,11 +20,16 @@ Debes hacer los siguientes pasos:
 
 ![Data Science](images/imagen4.png)<p>
 
-Luego que la maquina esta provisionada darle `click` en el hiperviculo paratrabajar con DataScience.
+Luego que la maquina esta provisionada darle `click` en el hiperviculo para trabajar con DataScience.
+
 ![Data Science](images/imagen5.png)<p>
+
 Y dentro de esta opcion vamos a ver un boton en la parte superior de `OPEN` que abre el notebook de Jupyter<br>
+
 ![Data Science](images/imagen6.png)<p>
+
 Cuando se abre una nueva pestaña en su navegador el servicio se muestra como un notebook de jupyter de la siguiente manera.<br>
+
 ![Data Science](images/imagen7.png)<p>
 
 ## Copia Archivos
