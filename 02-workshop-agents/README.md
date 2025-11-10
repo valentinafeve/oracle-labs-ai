@@ -44,5 +44,10 @@ Cuando se abre una nueva pestaña en su navegador el servicio se muestra como un
 
 ---
 ## Copia del archivo .pem
-La llave privada generada en el setup inical que se guardo el archivo .pem.<br>Tambien de cargarse de la mimsa manera que con los notebooks.
-El archivo debe tener el siguiente nombre dentro de DataScience para poder usarlo  `oci_api_key.pem`. Puedes renombrarlo antes de subir dicho archivo al servicio.<br>
+La llave privada generada en el setup inical que se guardo el archivo `Tuusuario@dominio.com-2025-11-10T20_58_44.661Z.pem`.<br>Tambien de cargarse de la mimsa manera que con los notebooks.
+
+## Iniciar el Lab
+A continuación, deberás abrir los notebooks en orden ascendente y ejecutar cada una de las celdas paso a paso (favor leer atentamente las instrucciones).
+Si llegas a encontrar algún error o inconveniente durante la ejecución, el equipo de Oracle estará disponible para brindarte apoyo.
+
+
