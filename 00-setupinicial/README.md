@@ -43,21 +43,24 @@ El **compartimiento** (Compartment) permite organizar y aislar los recursos de s
 ### Pasos
 
 1. En el menú de navegación, seleccione **Identidad y seguridad → Compartimentos**.
-   ![Menú Compartimentos](images/compartments_menu.png)
 
-2. Haga clic en **Crear compartimento**.
+    ![Menú Compartimentos](images/compartments_menu.png)
+
+3. Haga clic en **Crear compartimento**.
+ 
    ![Crear Compartimento](images/compartments_create.png)
 
-3. Asigne un nombre al nuevo compartimento, por ejemplo:  
+4. Asigne un nombre al nuevo compartimento, por ejemplo:  
    ```
    data-science-work
    ```
    y añada una descripción.
 
-4. Presione **Crear compartimento**.
+5. Presione **Crear compartimento**.
 
-5. Confirme que el nuevo compartimento aparece en la lista.
-   ![Compartimento creado](images/compartments_list.png)
+6. Confirme que el nuevo compartimento aparece en la lista.
+
+    ![Compartimento creado](images/compartments_list.png)
 
 ---
 
@@ -68,26 +71,28 @@ Antes de iniciar sesiones en los blocs de notas de Data Science, es necesario de
 ### Pasos
 
 1. En el menú de navegación, diríjase a **Identidad y seguridad → Políticas**.
-   ![Menú Políticas](images/policies_menu.png)
 
-2. Haga clic en **Crear política**.
+    ![Menú Políticas](images/policies_menu.png)
+
+3. Haga clic en **Crear política**.
 
    ![Menú Políticas](images/2crearpolicies.png)
 
-3. Complete los siguientes campos:
+4. Complete los siguientes campos:
    - **Nombre:** `data-science-policy`
    - **Descripción:** Política para los usuarios y el servicio de ciencia.
    - **Compartimento:** `root`
 
-4. Seleccione **Mostrar editor manual** e introduzca las siguientes sentencias de política:
+5. Seleccione **Mostrar editor manual** e introduzca las siguientes sentencias de política:
 
    ```text
    Allow group Administrators to manage all-resources in tenancy
    Allow service datascience to use data-science-family in tenancy
    ```
 
-5. Haga clic en **Crear** para guardar la política.
-   ![Crear Política](images/policies_create.png)
+6. Haga clic en **Crear** para guardar la política.
+
+    ![Crear Política](images/policies_create.png)
 
 ---
 
