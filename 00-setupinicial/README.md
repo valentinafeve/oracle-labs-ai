@@ -15,19 +15,22 @@ El **API Key** permite autenticar de forma segura las conexiones con los servici
 ### Pasos
 
 1. Abra el ícono del menú en la parte superior izquierda de la consola y seleccione su **perfil de usuario**.
-   ![Menú Perfil de Usuario](images/api_key_profile.png)
 
-2. Ingrese en la pestaña **Tokens and Keys**.
-   ![Tokens and Keys](images/api_key_tokens.png)
+    ![Menú Perfil de Usuario](images/api_key_profile.png)
 
-3. En la sección **API Keys**, haga clic en **Adicionar**.
+3. Ingrese en la pestaña **Tokens and Keys**.
 
-4. Seleccione **Generar API Key** y descargue los dos archivos que aparecen en la parte inferior de la ventana.
-   ![Generar API Key](images/api_key_generate.png)
+    ![Tokens and Keys](images/api_key_tokens.png)
 
-5. Finalmente, haga clic en **ADD** para completar el proceso.
+4. En la sección **API Keys**, haga clic en **Adicionar**.
 
-6. Visualice la configuración del archivo generado y **copie la información necesaria**, ya que se utilizará posteriormente en la configuración de acceso.
+5. Seleccione **Generar API Key** y descargue los dos archivos que aparecen en la parte inferior de la ventana.
+
+    ![Generar API Key](images/api_key_generate.png)
+
+7. Finalmente, haga clic en **ADD** para completar el proceso.
+
+8. Visualice la configuración del archivo generado y **copie la información necesaria**, ya que se utilizará posteriormente en la configuración de acceso.
 
    ![Generar API Key](images/5preview.png)
 
