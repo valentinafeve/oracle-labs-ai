@@ -24,7 +24,7 @@ Luego que la maquina esta provisionada darle `click` en el hiperviculo para trab
 
 ![Data Science](images/imagen5.png)<p>
 
-Y dentro de esta opción vamos a ver un boton en la parte superior de `OPEN` que abre el notebook de Jupyter, donde te pedira que te autentiques para poder acceder a los servicios<br>
+Y dentro de esta opción vamos a ver un boton en la parte superior de `OPEN` que abre el notebook de Jupyter, donde te pedira que te autentiques para poder acceder a los servicios.<br>
 
 ![Data Science](images/imagen6.png)<p>
 
@@ -33,11 +33,11 @@ Cuando se abre una nueva pestaña en su navegador el servicio se muestra como un
 ![Data Science](images/imagen7.png)<p>
 
 ## Copia Archivos
-- De los archivos que se encuentra en este git debes descargarlos a tu computador.
-    - notebook01
-    - notebook02
-    - notebook03
-    - imagen
+- De los archivos que se encuentran en este lab en el git, con extension *.ipynb y con prefijo ## debes descargarlos a tu computador.
+    - 01_notebook
+    - 02_notebook
+    - 03_notebook
+    - imagen(unico archivo)
 - Luego de tenerlo en tu PC vas a cargarlos al servicio de Datascience tomando los archivos y los arrastras a la zona indicada en la siguiente imagen.<p>
 
 ![Data Science](images/imagen8.png)<p>
