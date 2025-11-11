@@ -177,7 +177,7 @@ La **Autonomous Database (ADB)** permite crear un entorno de base de datos total
 ### Pasos
 
 1. En el menú de navegación, seleccione:  
-   **Base de datos Oracle → Almacén de datos autónomo (Autonomous Data Warehouse o ATP)**.  
+   **Base de datos Oracle → Almacén de datos autónomo (Autonomous Data Warehouse)**.  
    
    ![Figura 18](img/Picture18.png)
 
