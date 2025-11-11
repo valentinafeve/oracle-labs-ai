@@ -186,10 +186,13 @@ Los datos finales podriamos tener la versatilidad de guardarlos como una tabla e
 Vamos a crear un `usuario` y una `tabla` donde almacenaremos en el ultimo notebook los resultados.
 Vamos a ir a la opción de Oracle AI Database<br>
 ![AIDP Arquitectura Medallon](img/Picture50.png)<p>
+![AIDP Arquitectura Medallon](img/Picture50-1.png)<p>
 Vamos a abrir la base de datos y en la opción de Database Actions abriremos el SQL<br>
 ![AIDP Arquitectura Medallon](img/Picture51.png)<p>
 En el SQL DEVELOPER WEB vamos a ejecutar el siguiente codigo que se encuentra en los archivos `usuario.sql` y `crear_tabla.sql`
 Solo debes copiar y pegar el codigo y ejecutarlo. Tambien podrias arrastrar el archivo .sql a la interfaz para ejecutarlo.
+- Primero vas a abrir el codigo de `usuario.sql` lo marcas completo y ejecutas el codigo completo.
+- Luego vas a abrir el codigo de `crear_tabla.sql` lo marcas completo y ejecutos el codigo de creacion de tabla.<br>
 ![AIDP Arquitectura Medallon](img/runsql1.png)<p>
 ![AIDP Arquitectura Medallon](img/runsql2.png)<p>
 
