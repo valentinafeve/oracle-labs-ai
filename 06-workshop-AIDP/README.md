@@ -173,7 +173,7 @@ Si vamos al catalogo `silver` y al esquema `crm` podremos visualizar la tabla pr
 ![AIDP Arquitectura Medallon](img/Picture39.png)<p>
 
 ### 📋 Notebook 03
-El objetivo de este notebook es crear un modelo para predecir el churn de clientes y guardarlo en el espacio de trabajo para poder hacer predicciones.
+El objetivo de este notebook es crear un modelo para predecir el churn (salida voluntaria) de clientes y guardarlo en el espacio de trabajo para poder hacer predicciones.
 Vamos a abrir el **03_TrainCustomerChurnModel.ipynb**.<br>
 ![AIDP Arquitectura Medallon](img/Picture40.png)<p>
 Cuando el notebook se abre verifique que el cluster este atachado.<br>
