@@ -76,6 +76,9 @@ Se deben descargar los siguientes archivos y poder moverlos y cargarlos a el esp
 ![AIDP Arquitectura Medallon](img/Picture11.png)
 
 Todos los notebooks se deben descargar del git y subirse al AIDP.<p>
+
+En el espacio de trabajo vamos a crear una carpeta nueva `work_area` para solamente guardar aqui el codigo. La logica del area o espacio de trabajo es tener diferentes espacios en los cuales se puedan guardar los codigos de programacion, los agentes, los modelos o cualquier otro proceso.<br>
+![AIDP Arquitectura Medallon](img/Picture11-1.png)
 En el icono de carga se pueden cargar los archivos al espacio de trabajo.
 
 ![AIDP Arquitectura Medallon](img/Picture12.png)
