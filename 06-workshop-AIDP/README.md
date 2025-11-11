@@ -14,9 +14,9 @@ Hoy en dia las empresas estan buscando trabajar sobre una arquitectura medallon.
 1. Acceder a Oracle Cloud, buscar la opcion **Analytics AI**<br>
 ![Analytics AI](img/Picture1.png)
 2. Crear el servicio **AI Data Platform** llamado `AIWORKSHOP`.<p>
-Debes ingresar al botón de crear `Create AI Data Platform`. En la primera sección indicar el nombre del servicio “AIWORKSHOP” y una descripción opcional.
+Debes ingresar al botón de crear `Create AI Data Platform`. En la primera sección indicar el nombre del servicio “AIDP_DEMO” y una descripción opcional.
 ![AIDP Arquitectura Medallon](img/Picture2.png)
-3. Crear un **workspace** para notebooks, modelos y otros servicios, por ejemplo: `customer_analytics`.En la sección del workspace debes indicar un nombre al espacio de trabajo para los notebooks, modelos y otros servicios de trabajo. Indica el nombre “customer_analytics” y una descripción adicional. En el cual vamos a montar el ejercicio de análisis de clientes.
+3. Crear un **workspace** para notebooks, modelos y otros servicios, por ejemplo: `customer_analytics`.En la sección del workspace debes indicar un nombre al espacio de trabajo para los notebooks, modelos y otros servicios de trabajo. Indica el nombre “CUSTOMER_ANALYTICS” y una descripción adicional. En el cual vamos a montar el ejercicio de análisis de clientes.
 ![AIDP Arquitectura Medallon](img/Picture3.png)
 4. Seleccionar las políticas `Standard` durante el aprovisionamiento.En las políticas a generar indicar las políticas “Standard” con lo cual el servicio realiza todos los ajustes necesarios para poder levantar el servicio
 ![AIDP Arquitectura Medallon](img/Picture4.png)
