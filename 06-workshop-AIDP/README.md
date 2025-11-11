@@ -210,7 +210,9 @@ Vamos a crear un nuevo catalogo `Create Catalog`<br>
 Luego de agregar el wallet en la pantalla de External Catalog podras seleccionar `Service`y se recomienda usar `médium` en el nombre del servicio de los existentes en la lista de servicios.<br>
 ![AIDP Arquitectura Medallon](img/Picture55.png)<p>
 ![AIDP Arquitectura Medallon](img/Picture55B.png)<p>
-En el boton **Test Conection** puedes probar la conexion a la base de datos y si funciona das **click** en el boton `Create`<br>
+En el boton **Test Conection** puedes probar la conexion a la base de datos y si funciona das **click** en el boton `Create`
+Posterior a este paso vamos a poder visualizar el catalogo en el `Master Catalog` como se refleja en la siguiente imagen.<br>
+![AIDP Arquitectura Medallon](img/Picture56.png)<p>
 
 ### 📋 Notebook 04
 La tarea de este ultimo notebook es hacer predicciones con el modelo entrenado y guardarlas en una tabla dentro del datawarehouse ADW.
@@ -238,5 +240,5 @@ Ejecutar la siguiente celda para ver los resultados de la **prediccion**.<br>
 Vamos a unicamente hacer un subset de las columnas que vamos a guardar en `ADW`.<br>
 ![AIDP Arquitectura Medallon](img/Picture65.png)<p>
 Y con la ultima instruccion haremos un **"insert"** de los datos en la tabla del `ADW`.<br>
-![AIDP Arquitectura Medallon](img/Picture66-1.png)<p>
+![AIDP Arquitectura Medallon](img/Picture66-2.png)<p>
 
