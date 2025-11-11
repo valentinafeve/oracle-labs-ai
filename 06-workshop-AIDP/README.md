@@ -23,7 +23,7 @@ Debes ingresar al botón de crear `Create AI Data Platform`. En la primera secci
 5. Una vez activo, acceder al servicio y usar la URL para compartir con miembros del equipo. Hacer "click" en el hipervinculo.
 ![AIDP Arquitectura Medallon](img/Picture5.png)
 
-Luego de algunos minutos el servicio estará activo y solo se necesita darle clink en el vinculo del servicio. Dicho servicio se abrirá en una nueva pestana del navegador y esa url podrá ser compartida con otros usuarios del equipo a la hora de trabajar y con SSO pueden ingresar a la plataforma.![AIDP Arquitectura Medallon](img/Picture6.png)
+Luego de algunos minutos el servicio estará activo con nombre “AIDP_DEMO” y solo se necesita darle click en el vinculo del servicio. Dicho servicio se abrirá en una nueva pestana del navegador y esa url podrá ser compartida con otros usuarios del equipo a la hora de trabajar y con SSO pueden ingresar a la plataforma.![AIDP Arquitectura Medallon](img/Picture6.png)
 
 ---
 ## Arquitectura Medallón - Creación de Catálogos
@@ -56,7 +56,7 @@ Vamos a realizar la carga de 3 tablas en diferentes esquemas.
 El archivo `customer_reviews` lo vamos a cargar en un `bucket` o espacio fisico del datalake, esto para probar que podemos cargar archivos tanto de manera local como de archivos que pueden conformar tablas a partir de datos que se encuentran en el `datalake`.
 Nos vamos a ir a la opcion del menu de hamburguesa `Storage` y en `Buckets` hacemos click.<br>
 ![AIDP Arquitectura Medallon](img/Picture10-1.png)<p>
-En el bucket de `aiworkshop` vamos a la opcion de objects.<br>
+En el bucket de `aiworkshop` vamos a la opcion de objects (Si no existe debemos crear un bucker con el nombre `aiworkshop`).<br>
 ![AIDP Arquitectura Medallon](img/Picture10-2.png)<p>
 Y ahi damos click en el boton de `Upload objects` para cargar el archivo `customer_reviews.csv`.<br>
 ![AIDP Arquitectura Medallon](img/Picture10-3.png)<p>
@@ -96,8 +96,16 @@ Debemos indicar los siguientes elementos
 -mantener la versión de spark en 3.5.0
 - se necesita un nodo de driver (mantener la configuración incada 2 OCPUs 32 GB RAM)
 - se necesita al menos 1 executor (mantener la configuración incada 2 OCPUs 32 GB RAM)
-`Nota:`Los tipos de procesadores disponibles serán un elemento de decisión en casos productivos de acuerdo a volumen y necesidad de procesamiento de los datos de las empresas. Para efectos del ejercicio con la configuración básica podemos trabajar este escenario.
+y luego que tengamos las configuraciones procedemos a darle click en el boton de crear cluster 
+
+Nota:`Los tipos de procesadores disponibles serán un elemento de decisión en casos productivos de acuerdo a volumen y necesidad de procesamiento de los datos de las empresas. Para efectos del ejercicio con la configuración básica podemos trabajar este escenario.
 ![AIDP Arquitectura Medallon](img/Picture15.png)
+
+Ahora Verificamos que el cluster de spark este atachado al notebook para poder ejecutarlo.<br>
+![AIDP Arquitectura Medallon](img/Picture27.png)<br>
+![AIDP Arquitectura Medallon](img/Picture27-1.png)<br>
+![AIDP Arquitectura Medallon](img/Picture27-2.png)<br>
+
 
 ## 3-Ejecucion de los notebooks
 ### 📋 Notebook 01
