@@ -140,7 +140,7 @@ Luego de escribir los datos en el Catalogo silver vamos a verificar el nuevo esq
 ![AIDP Arquitectura Medallon](img/Picture25.png)<p>
 
 ### 📋 Notebook 02
-La tarea del notebook_02 es integrar los datos de  `customers` y `reviews` para integrarlos en el esquema silver.
+La tarea del notebook_02 es integrar los datos de  `customers` y `customers_reviews` para integrarlos en el esquema silver.
 Vamos a abrir el notebook `02_IntegrateAndCleanseCustomer.ipynb`<p>
 ![AIDP Arquitectura Medallon](img/Picture26.png)<p>
 Verificamos que el cluster de spark este atachado al notebook para poder procesar.<br>
