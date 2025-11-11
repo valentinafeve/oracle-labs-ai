@@ -202,13 +202,14 @@ Vamos a crear un nuevo catalogo `Create Catalog`<br>
 - Vamos a indicar el `nombre del catalogo`, indicar una descripción y seleccionar `external catalog`.<br>
 - Indicamos que la fuente es un `Oracle Autonomous Data Warehouse`<br>
 - Anexamos el `wallet` de la base de datos el cual se descarga en el ADW en la opción 
-![AIDP Arquitectura Medallon](img/Picture54.png)<p>
+![AIDP Arquitectura Medallon](img/Picture53.png)<br>
+
 - Debes dar click en la opción `download wallet` y darle un password a la descarga del archivo. Puedes usar la misma clave del usuario que creamos para la base de datos.
 `Clave=Oracle1234##`<br>
-![AIDP Arquitectura Medallon](img/Picture56.png)<p>
+![AIDP Arquitectura Medallon](img/Picture54.png)<br>
 Luego de agregar el wallet en la pantalla de External Catalog podras seleccionar `Service`y se recomienda usar `médium` en el nombre del servicio de los existentes en la lista de servicios.<br>
-![AIDP Arquitectura Medallon](img/Picture56B.png)<p>
-![AIDP Arquitectura Medallon](img/Picture57.png)<p>
+![AIDP Arquitectura Medallon](img/Picture55.png)<p>
+![AIDP Arquitectura Medallon](img/Picture55B.png)<p>
 En el boton **Test Conection** puedes probar la conexion a la base de datos y si funciona das **click** en el boton `Create`<br>
 
 ### 📋 Notebook 04
@@ -237,5 +238,5 @@ Ejecutar la siguiente celda para ver los resultados de la **prediccion**.<br>
 Vamos a unicamente hacer un subset de las columnas que vamos a guardar en `ADW`.<br>
 ![AIDP Arquitectura Medallon](img/Picture65.png)<p>
 Y con la ultima instruccion haremos un **"insert"** de los datos en la tabla del `ADW`.<br>
-![AIDP Arquitectura Medallon](img/Picture66.png)<p>
+![AIDP Arquitectura Medallon](img/Picture66-1.png)<p>
 
