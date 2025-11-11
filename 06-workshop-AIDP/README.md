@@ -52,7 +52,7 @@ Vamos a realizar la carga de 3 tablas en diferentes esquemas.
 - **customer** en catalogo `bronze` esquema `crm` de manera local
 - **customer_review** en catalogo `bronze` esquema `crm` de manera externa al ir y buscar el archivo en un bucket.
 - **labelled_customer** en catalogo `bronze` esquema `historical` de manera local
-[![AIDP Arquitectura Medallon](img/black.png)](img/Task-I.mp4)
+[![AIDP Arquitectura Medallon](img/black.png)](https://idi1o0a010nx.objectstorage.us-chicago-1.oci.customer-oci.com/n/idi1o0a010nx/b/archivos_publicos/o/Task-I.mp4)
 
 El archivo customer reviews lo vamos a subir al bucket de datalake_aiworkshop para poder probar que los archivos se pueden cargar al cluster de spark y a la plataforma de manera local o accesando archivos que se encuentran en un bucket indicando el concepto de external data en un lake.
 
