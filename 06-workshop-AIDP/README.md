@@ -160,17 +160,19 @@ El objetivo de este notebook es crear un modelo para predecir el churn de client
 Vamos a abrir el **03_TrainCustomerChurnModel.ipynb**.<br>
 ![AIDP Arquitectura Medallon](img/Picture40.png)<p>
 Cuando el notebook se abre verifique que el cluster este atachado.<br>
-![AIDP Arquitectura Medallon](img/Picture41.png)<p>
+![AIDP Arquitectura Medallon](img/Picture27.png)<br>
+![AIDP Arquitectura Medallon](img/Picture27-1.png)<br>
+![AIDP Arquitectura Medallon](img/Picture27-2.png)<br>
 Iniciamos importando las librerias requeridas para ejecutar el notebook y entrenar el modelo.
-![AIDP Arquitectura Medallon](img/Picture42.png)<p>
+![AIDP Arquitectura Medallon](img/Picture41.png)<p>
 Vamos a leer la tabla historica `customer.profiles` de la capa silver y vamos a borrar el year y review para ejecutar el codigo.<br>
-![AIDP Arquitectura Medallon](img/Picture43.png)<p>
+![AIDP Arquitectura Medallon](img/Picture42.png)<p>
 Ahora vamos a crear una lista **"StringIndexer"** y **"OneHotEncoder"** para hacer las transformaciones de datos categoricos a valores numericos. Asi podemos unir datos categoricos y numericos en un solo dataframe.<br>
-![AIDP Arquitectura Medallon](img/Picture44.png)<p>
+![AIDP Arquitectura Medallon](img/Picture43.png)<p>
 Ahora vamos a definir un modelo de **"regresion logistica"** con los datos escalados y vamos a construir un **"pipeline"**, en el cual vamos hacer todas las tareas de procesar alistar y entrenar el modelo.<br>
-![AIDP Arquitectura Medallon](img/Picture45.png)<p>
+![AIDP Arquitectura Medallon](img/Picture44.png)<p>
 Ahora vamos a partir los datos en entrenamiento y prueba del dataset para entrenarlo.<br>
-![AIDP Arquitectura Medallon](img/Picture46.png)<p>
+![AIDP Arquitectura Medallon](img/Picture45.png)<p>
 Ahora vamos a usar el modelo entrenado para predecir la salida de clientes  con los datos de prueba.<br>
 ![AIDP Arquitectura Medallon](img/Picture47.png)<p>
 Ahora evaluemos el modelo con la extraccion de las predicciones **positivas**  y la **probabilidad** de las predicciones del modelo. Al ser una clasificacion binaria  podemos usar las metricas BinaryClassificationMetrics y finalmente vamos a imprimir la **curva ROC (AUC)**<br>
