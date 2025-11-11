@@ -52,9 +52,19 @@ Vamos a realizar la carga de 3 tablas en diferentes esquemas.
 - **customer** en catalogo `bronze` esquema `crm` de manera local
 - **customer_review** en catalogo `bronze` esquema `crm` de manera externa al ir y buscar el archivo en un bucket.
 - **labelled_customer** en catalogo `bronze` esquema `historical` de manera local
+
+El archivo `customer_reviews` lo vamos a cargar en un `bucket` o espacio fisico del datalake, esto para probar que podemos cargar archivos tanto de manera local como de archivos que pueden conformar tablas a partir de datos que se encuentran en el `datalake`.
+Nos vamos a ir a la opcion del menu de hamburguesa `Storage` y en `Buckets` hacemos click.<br>
+![AIDP Arquitectura Medallon](img/Picture10-1.png)<p>
+En el bucket de `aiworkshop` vamos a la opcion de objects.<br>
+![AIDP Arquitectura Medallon](img/Picture10-2.png)<p>
+Y ahi damos click en el boton de `Upload objects` para cargar el archivo `customer_reviews.csv`.<br>
+![AIDP Arquitectura Medallon](img/Picture10-3.png)<p>
+
+Luego de cargar el archivo en el bucket con el siguiente video se muestra como cargar los datos. Vaya a la opcion de `Create table` y siga los pasos para los archivos de customer y customer_reviews.
 [![AIDP Arquitectura Medallon](img/black.png)](https://idi1o0a010nx.objectstorage.us-chicago-1.oci.customer-oci.com/n/idi1o0a010nx/b/archivos_publicos/o/Task-I.mp4)
 
-El archivo customer reviews lo vamos a subir al bucket de datalake_aiworkshop para poder probar que los archivos se pueden cargar al cluster de spark y a la plataforma de manera local o accesando archivos que se encuentran en un bucket indicando el concepto de external data en un lake.
+Luego realice el mismo proceso para cargar el catalogo `historical` la tabla de `labelled_customer` similar a como cargo la tabla `customer` mediante una carga local.<br>
 
 Es importante analizar que podemos cargar diferentes tipos de formatos de archivos como por ejemplo .AVRO o .PARQUET si desea hacer una prueba dejamos otra otros archivos que puede cargar de formato parquet.
 
