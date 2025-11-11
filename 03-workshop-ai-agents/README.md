@@ -1,4 +1,4 @@
-# 🤖 Laboratorio 02 Agentes en OCI
+# 🤖 Laboratorio 03 Agentes en OCI
 
 ### 📁 2.1 Subir los archivos para que el agente tenga acceso en el bucket
 Como prerrequisito debes tener acceso a la consola de `OCI`, como en la imagen de abajo.<br>
