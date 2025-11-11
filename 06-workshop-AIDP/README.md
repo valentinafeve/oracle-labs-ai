@@ -116,7 +116,7 @@ Ahora Verificamos que el cluster de spark este atachado al notebook para poder e
 
 ## 3-Ejecucion de los notebooks
 ### 📋 Notebook 01
-Vamos a ejecutar la primera celda del notebook del primer notebook, donde ubicaremos en la parte superior derecha de cada celda el icono de play (:arrow_forward:) y le daremos click para ejecutar el contenido de la celda **01_CleaseHistoricalData.ipynb**<p>En esta celda cargamos las librerias necesarias<p>
+Vamos a ejecutar la primera celda del notebook del primer notebook, donde ubicaremos en la parte superior derecha de cada celda el icono de play (▶️) y le daremos click para ejecutar el contenido de la celda **01_CleaseHistoricalData.ipynb**<p>En esta celda cargamos las librerias necesarias<p>
 
 ![AIDP Arquitectura Medallon](img/Picture16.png)<p>
 La siguiente celda vamos leer los datos de la tabla historical.labeled_customers  hacia un dataframe llamado customer.<p>
