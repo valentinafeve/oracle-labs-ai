@@ -275,11 +275,8 @@ Una vez creada la red y la base de datos, el siguiente paso es desplegar una **i
    
    ![Figura 17](img/Picture17.png)
 
-10. Durante el primer ingreso, cambie la contraseña e instale las siguientes herramientas:
-    - Visual Studio Code  
-    - Navegador actualizado  
-    - Conexión estable a Internet
-
+10. Durante el primer ingreso, cambie la contraseña y listo terminamos los prerrequisitos.
+    
 ---
 
 ## 🧾 Notas Finales
