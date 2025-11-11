@@ -58,8 +58,9 @@ Vamos a darle click en el boton de la derecha superior de `Create Catalog`
     Vamos a dar click en el botón de create schema
 
 ![AIDP Arquitectura Medallon](img/Picture9.png)
+
 - Debes indicar el nombre del esquema y una descripcion.
-- 
+  
 ![AIDP Arquitectura Medallon](img/Picture10.png)
 
 ---
