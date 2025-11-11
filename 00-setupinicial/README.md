@@ -1,4 +1,4 @@
-# ☁️ README – Configuración Completa de Entorno para Servicios de AI en Oracle Cloud Infrastructure (OCI)
+# ☁️ Pre-Configuración de Entorno para Servicios de AI en Oracle Cloud Infrastructure (OCI)
 
 ## 📘 Introducción
 
