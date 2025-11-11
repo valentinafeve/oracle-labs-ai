@@ -212,21 +212,25 @@ Vamos a abrir el ultimo notebook **04_PredictCustomerChurn.ipynb**<p>
 ![AIDP Arquitectura Medallon](img/Picture58.png)<p>
 
 Volvemos a verificar que el cluster este atachado a el notebook.<br>
-![AIDP Arquitectura Medallon](img/Picture59.png)<p>
+![AIDP Arquitectura Medallon](img/Picture27.png)<br>
+![AIDP Arquitectura Medallon](img/Picture27-1.png)<br>
+![AIDP Arquitectura Medallon](img/Picture27-2.png)<br>
+
+
 Vamos a importar las librerias necesarias para ejecutar el notebook.<br>
-![AIDP Arquitectura Medallon](img/Picture60.png)<p>
+![AIDP Arquitectura Medallon](img/Picture59.png)<p>
 Ahora vamos a tomar los datos del esquema silver de la tabla customer y lo cargamos como un dataframe.<br>
-![AIDP Arquitectura Medallon](img/Picture61.png)<p>
+![AIDP Arquitectura Medallon](img/Picture60.png)<p>
 Vamos a borrar la columna `review`<br>
-![AIDP Arquitectura Medallon](img/Picture62.png)<p>
+![AIDP Arquitectura Medallon](img/Picture61.png)<p>
 Hacemos la carga del modelo entrenado para utilizarlo.<br>
-![AIDP Arquitectura Medallon](img/Picture63.png)<p>
+![AIDP Arquitectura Medallon](img/Picture62.png)<p>
 Ahora que el modelo ya esta cargado en memoria lo utilizamos para hacer las predicciones de `churn` (salida) como se muestra a continuacion.<br>
-![AIDP Arquitectura Medallon](img/Picture64.png)<p>
+![AIDP Arquitectura Medallon](img/Picture63.png)<p>
 Ejecutar la siguiente celda para ver los resultados de la **prediccion**.<br>
-![AIDP Arquitectura Medallon](img/Picture65.png)<p>
+![AIDP Arquitectura Medallon](img/Picture64.png)<p>
 Vamos a unicamente hacer un subset de las columnas que vamos a guardar en `ADW`.<br>
-![AIDP Arquitectura Medallon](img/Picture66.png)<p>
+![AIDP Arquitectura Medallon](img/Picture65.png)<p>
 Y con la ultima instruccion haremos un **"insert"** de los datos en la tabla del `ADW`.<br>
-![AIDP Arquitectura Medallon](img/Picture67.png)<p>
+![AIDP Arquitectura Medallon](img/Picture66.png)<p>
 
