@@ -60,11 +60,11 @@ Al final de este laboratorio serás capaz de:
 
 Este laboratorio asume que cuentas con lo siguiente:
 
-- **Oracle Java 17 o 21** instalado.  
+- **Acceso a Internet**.
 - Acceso a una **base de datos Oracle AI** (FreeSQL, LiveSQL o una base de datos autónoma con cartera).  
 - **Credenciales de cuenta Oracle** válidas.  
 - **Visual Studio Code (VS Code)** instalado en tu máquina.  
-- **Acceso a Internet**.
+
 
 ---
 
@@ -594,4 +594,5 @@ Puedes consultar esta tabla para ver un historial de:
 **Gracias**
 
 ---
+
 
