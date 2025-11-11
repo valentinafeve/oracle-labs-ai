@@ -135,7 +135,8 @@ Vamos a cambiar el valor de la columna churn (Yes/No) a valores numericos para p
 ![AIDP Arquitectura Medallon](img/Picture23.png)<p>
 Finalmente vamos a verificar si en el esquema “silver” existe el esquema silver con los datos ya procesados y limpios. Sino existe va a crear dicha tabla en el esquema de datos ya procesados y trabajados posterior a su limpieza.<p>
 ![AIDP Arquitectura Medallon](img/Picture24.png)<p>
-Luego de escribir los datos en el esquema silver vamos a verificar el nuevo esquma escrito  de historical.customers y con esto finaliza el primer laboratorio<br>
+Luego de escribir los datos en el Catalogo silver vamos a verificar el nuevo esquema historical y la nueva tabla llamada customers (puedes dar click en icono de refrescar para visualizar la información creada) y con esto finaliza el primer laboratorio<br>
+
 ![AIDP Arquitectura Medallon](img/Picture25.png)<p>
 
 ### 📋 Notebook 02
