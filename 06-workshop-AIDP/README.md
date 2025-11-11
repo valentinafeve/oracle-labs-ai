@@ -127,7 +127,9 @@ La tarea del notebook_02 es integrar los datos de  `customers` y `reviews` para 
 Vamos a abrir el notebook `02_IntegrateAndCleanseCustomer.ipynb`<p>
 ![AIDP Arquitectura Medallon](img/Picture26.png)<p>
 Verificamos que el cluster de spark este atachado al notebook para poder procesar.<br>
-![AIDP Arquitectura Medallon](img/Picture27.png)<p>
+![AIDP Arquitectura Medallon](img/Picture27.png)<br>
+![AIDP Arquitectura Medallon](img/Picture27-1.png)<br>
+![AIDP Arquitectura Medallon](img/Picture27-2.png)<br>
 En el siguiente paso vamos a importar las librerias necesarias<br>
 ![AIDP Arquitectura Medallon](img/Picture28.png)<p>
 En la siguiente celda vamos a leer los datos customer de la capa bronze en el esquema `crm`<br>
