@@ -174,10 +174,12 @@ Ahora vamos a definir un modelo de **"regresion logistica"** con los datos escal
 Ahora vamos a partir los datos en entrenamiento y prueba del dataset para entrenarlo.<br>
 ![AIDP Arquitectura Medallon](img/Picture45.png)<p>
 Ahora vamos a usar el modelo entrenado para predecir la salida de clientes  con los datos de prueba.<br>
-![AIDP Arquitectura Medallon](img/Picture47.png)<p>
+![AIDP Arquitectura Medallon](img/Picture46.png)<p>
 Ahora evaluemos el modelo con la extraccion de las predicciones **positivas**  y la **probabilidad** de las predicciones del modelo. Al ser una clasificacion binaria  podemos usar las metricas BinaryClassificationMetrics y finalmente vamos a imprimir la **curva ROC (AUC)**<br>
-![AIDP Arquitectura Medallon](img/Picture48.png)<p>
+![AIDP Arquitectura Medallon](img/Picture47.png)<p>
 Como ultimo paso vamos a guardar el modelo en el espacio `/workspace/model/customer_churn/ml_model`.<br>
+![AIDP Arquitectura Medallon](img/Picture48.png)<p>
+AIDP va a crear una nueva area de trabajo donde guardara los modelos de acuerdo a la ruta indicada. Si te regresas al menu de `CUSTOMER_ANALYTICS` podras observar que existe un folder `model` en el cual fue almacenado el model de Machine Learning entrenado.<br>
 ![AIDP Arquitectura Medallon](img/Picture49.png)<p>
 ### 📝 Setup en Autonomous Datawarehouse como capa Gold
 Los datos finales podriamos tener la versatilidad de guardarlos como una tabla externa en el **"Lake"** y accesarla o guardarlos en nuetra capa de **"warehouse ADW"**.<br>
