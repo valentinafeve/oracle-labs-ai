@@ -69,7 +69,7 @@ Y ahi damos click en el boton de `Upload objects` para cargar el archivo `custom
 Luego de cargar el archivo en el bucket con el siguiente video se muestra como cargar los datos. Vaya a la opcion de `Create table` y siga los pasos para los archivos de customer y customer_reviews.
 [![AIDP Arquitectura Medallon](img/black.png)](https://idi1o0a010nx.objectstorage.us-chicago-1.oci.customer-oci.com/n/idi1o0a010nx/b/archivos_publicos/o/Task-I.mp4)
 
-Luego realice el mismo proceso para cargar el catalogo `historical` la tabla de `labelled_customer` similar a como cargo la tabla `customer` mediante una carga local.<br>
+Luego realice el mismo proceso para cargar el catalogo `historical` la tabla de `labelled_customer` con el archivo labelled_customer.csv similar a como cargo la tabla `customer` en el paso anterior, mediante una carga local.<br>
 
 Es importante analizar que podemos cargar diferentes tipos de formatos de archivos como por ejemplo .AVRO o .PARQUET si desea hacer una prueba dejamos otra otros archivos que puede cargar de formato parquet.
 
