@@ -15,12 +15,13 @@ Hoy en dia las empresas estan buscando trabajar sobre una arquitectura medallon.
 ![Analytics AI](img/Picture1.png)
 2. Crear el servicio **AI Data Platform** sobre el compartment llamado `AIWORKSHOP`.<p>
 Debes ingresar al botón de crear `Create AI Data Platform`. En la primera sección indicar el nombre del servicio “AIDP_DEMO” y una descripción opcional.
+
 ![AIDP Arquitectura Medallon](img/Picture2.png)
-3. Crear un **workspace** para notebooks, modelos y otros servicios, por ejemplo: `customer_analytics`.En la sección del workspace debes indicar un nombre al espacio de trabajo para los notebooks, modelos y otros servicios de trabajo. Indica el nombre “CUSTOMER_ANALYTICS” y una descripción adicional. En el cual vamos a montar el ejercicio de análisis de clientes.
+4. Crear un **workspace** para notebooks, modelos y otros servicios, por ejemplo: `customer_analytics`.En la sección del workspace debes indicar un nombre al espacio de trabajo para los notebooks, modelos y otros servicios de trabajo. Indica el nombre “CUSTOMER_ANALYTICS” y una descripción adicional. En el cual vamos a montar el ejercicio de análisis de clientes.
 ![AIDP Arquitectura Medallon](img/Picture3.png)
-4. Seleccionar las políticas `Standard` durante el aprovisionamiento.En las políticas a generar indicar las políticas “Standard” con lo cual el servicio realiza todos los ajustes necesarios para poder levantar el servicio
+5. Seleccionar las políticas `Standard` durante el aprovisionamiento.En las políticas a generar indicar las políticas “Standard” con lo cual el servicio realiza todos los ajustes necesarios para poder levantar el servicio
 ![AIDP Arquitectura Medallon](img/Picture4.png)
-5. Una vez activo, acceder al servicio y usar la URL para compartir con miembros del equipo. Hacer "click" en el hipervinculo.
+6. Una vez activo, acceder al servicio y usar la URL para compartir con miembros del equipo. Hacer "click" en el hipervinculo.
 ![AIDP Arquitectura Medallon](img/Picture5.png)
 
 Luego de algunos minutos el servicio estará activo con nombre “AIDP_DEMO” y solo se necesita darle click en el vinculo del servicio. Dicho servicio se abrirá en una nueva pestana del navegador y esa url podrá ser compartida con otros usuarios del equipo a la hora de trabajar y con SSO pueden ingresar a la plataforma.![AIDP Arquitectura Medallon](img/Picture6.png)
@@ -36,15 +37,19 @@ Vamos a darle click en el boton de la derecha superior de `Create Catalog`
    - **silver**
    - **gold**
 3. Para cada catálogo, seleccionar la opción `Standard Catalog` y asignar el compartment `AIWORKSHOP`.
+4. 
 ![AIDP Arquitectura Medallon](img/Picture8.png)
+
 ### Creación de esquemas dentro de Bronze
 
 - En el catálogo `bronze`, crear los esquemas:
     - **crm**: que hace alusión a un esquema de base de datos del crm empresarial
     - **historical**: que hace alusión de un esquema con datos históricos de la empresa.
     Vamos a dar click en el botón de create schema
+
 ![AIDP Arquitectura Medallon](img/Picture9.png)
 - Debes indicar el nombre del esquema y una descripcion.
+- 
 ![AIDP Arquitectura Medallon](img/Picture10.png)
 ---
 ### Carga de datos en el esquema bronze
@@ -99,9 +104,11 @@ Debemos indicar los siguientes elementos
 y luego que tengamos las configuraciones procedemos a darle click en el boton de crear cluster 
 
 Nota:`Los tipos de procesadores disponibles serán un elemento de decisión en casos productivos de acuerdo a volumen y necesidad de procesamiento de los datos de las empresas. Para efectos del ejercicio con la configuración básica podemos trabajar este escenario.
+
 ![AIDP Arquitectura Medallon](img/Picture15.png)
 
-Ahora Verificamos que el cluster de spark este atachado al notebook para poder ejecutarlo.<br>
+Ahora Verificamos que el cluster de spark este atachado al notebook para poder ejecutarlo (Esperar a que se ponda en estado en verde y activo).<br>
+
 ![AIDP Arquitectura Medallon](img/Picture27.png)<br>
 ![AIDP Arquitectura Medallon](img/Picture27-1.png)<br>
 ![AIDP Arquitectura Medallon](img/Picture27-2.png)<br>
@@ -109,7 +116,8 @@ Ahora Verificamos que el cluster de spark este atachado al notebook para poder e
 
 ## 3-Ejecucion de los notebooks
 ### 📋 Notebook 01
-Vamos a ejecutar la primera celda del notebook del primer notebook **01_CleaseHistoricalData.ipynb**<p>En esta celda cargamos las librerias necesarias<p>
+Vamos a ejecutar la primera celda del notebook del primer notebook, donde ubicaremos en la parte superior derecha de cada celda el icono de play (►) y le daremos click para ejecutar el contenido de la celda **01_CleaseHistoricalData.ipynb**<p>En esta celda cargamos las librerias necesarias<p>
+
 ![AIDP Arquitectura Medallon](img/Picture16.png)<p>
 La siguiente celda vamos leer los datos de la tabla historical.labeled_customers  hacia un dataframe llamado customer.<p>
 ![AIDP Arquitectura Medallon](img/Picture17.png)<p>
