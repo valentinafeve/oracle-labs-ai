@@ -109,8 +109,17 @@ Luego haz clic en **Download** en la parte inferior derecha.
 
 ---
 
-## Tarea 2: Instalación de la extensión SQL Developer para VSCode
+## Tarea 2: Instalación de la extensión miniconda, VSCODE y Extensiones de VSCODE
+### Instalar miniconda
+Dentro de la maquina virtual abres un explorador y copias la siguiente url.
+- https://idi1o0a010nx.objectstorage.us-chicago-1.oci.customer-oci.com/n/idi1o0a010nx/b/archivos_publicos/o/Miniconda3-latest-Windows-x86_64.exe
 
+Luego de la descarga solo la ejecutas y vas indicando `Next` en cada paso y lo mantienes tal cual si hacer cambios.
+Ahora te toca instalar VSCODE dentro de la maquina virtual y en el mismo explorador copias la siguiente url.
+- https://idi1o0a010nx.objectstorage.us-chicago-1.oci.customer-oci.com/n/idi1o0a010nx/b/archivos_publicos/o/VSCodeUserSetup-x64-1.105.1.exe
+Luego de la descarga solo la ejecutas y vas indicando `Next` en cada paso y lo mantienes tal cual si hacer cambios.
+
+### Instalacion de la extension SQL Developer
 ### ¿Qué hace esta extensión?
 
 La extensión **Oracle SQL Developer** para VS Code permite:
@@ -124,15 +133,9 @@ Esta extensión almacenará los **detalles de conexión** de tu base de datos y 
 
 ### Pasos
 
-1. Abre **VS Code**. Si aún no lo tienes, descárgalo e instálalo desde:
+1. Una vez instalado, abre VS Code y ve a la vista **Extensions** (icono de cuadraditos en la barra lateral).
 
-   ```text
-   https://code.visualstudio.com/download
-   ```
-
-2. Una vez instalado, abre VS Code y ve a la vista **Extensions** (icono de cuadraditos en la barra lateral).
-
-3. En el cuadro de búsqueda, escribe:
+2. En el cuadro de búsqueda, escribe:
 
    ```text
    Oracle SQL Developer
@@ -142,15 +145,15 @@ Esta extensión almacenará los **detalles de conexión** de tu base de datos y 
 
    ![Figura 26](img/figure26.png)
 
-4. Una vez instalada la extensión, ábrela desde la barra de actividades (panel lateral izquierdo).
+3. Una vez instalada la extensión, ábrela desde la barra de actividades (panel lateral izquierdo).
 
    ![Figura 1](img/figure1.png)
 
-5. Haz clic en **Create Connection**.
+4. Haz clic en **Create Connection**.
 
    ![Figura 20](img/figure20.png)
 
-6. Introduce los detalles de la conexión de la cartera:
+5. Introduce los detalles de la conexión de la cartera:
 
    * **Connection name:** `AIWorld-HOL`
    * **User:** `ADMIN`
@@ -159,11 +162,11 @@ Esta extensión almacenará los **detalles de conexión** de tu base de datos y 
    * En **Connection Type**, selecciona: `Cloud Wallet`.
    * Haz clic en **Choose file** y selecciona el archivo `.zip` de la cartera descargada en la Tarea 1.
 
-7. Haz clic en **Test** para verificar que la conexión funcione y luego en **Save**.
+6. Haz clic en **Test** para verificar que la conexión funcione y luego en **Save**.
 
    ![Figura 9](img/figure9.png)
 
-8. **Verificar la configuración:**
+7. **Verificar la configuración:**
    Debería aparecer la nueva conexión `AIWorld-HOL` en el panel de la extensión **Oracle SQL Developer**.
    Si la prueba de conexión falla:
 
@@ -594,5 +597,6 @@ Puedes consultar esta tabla para ver un historial de:
 **Gracias**
 
 ---
+
 
 
