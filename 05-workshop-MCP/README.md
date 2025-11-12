@@ -106,6 +106,8 @@ Luego haz clic en **Download** en la parte inferior derecha.
 
 3. **Verificar la descarga:** comprueba que se haya descargado un archivo `.zip` en tu computador (normalmente en la carpeta **Descargas**).
    Este archivo contiene las **credenciales de la cartera**.
+4. ### Nota Importante:
+   El archivo del wallet luego que se descarga esta en tu computador local y debes copiarlo a la maquina virtual. Windows Remote Desktop permite hacer `Copy` y `Paste` por lo tanto puedes en tu maquina local darle `Copy` al archivo wallet y en la maquina virtual abres el `**File Explorer**` y das la opcion de `Paste`.
 
 ---
 
@@ -599,6 +601,7 @@ Puedes consultar esta tabla para ver un historial de:
 **Gracias**
 
 ---
+
 
 
 
