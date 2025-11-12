@@ -333,13 +333,13 @@ El servidor MCP actúa como un **puente seguro**, permitiendo que Cline:
 
 4. **Nota sobre Java:**
    Para configurar y utilizar SQLcl es requisito previo tener **Java** instalado.
-   Si aparece una ventana solicitando su instalación, simplemente procede a instalar Java antes de continuar con la configuración. Es posible que durante la instalacion la pantalla de los servidores `MCP` en `Cline` indique problemas de conexion al servidor MCP, debes refrescar posterior a la instalacion de Java y ahi indicara de manera correcta que conecto al servidor MCP.
-
+   Si aparece una ventana solicitando su instalación, simplemente procede a instalar Java antes de continuar con la configuración. 
    ![Figura 10](img/figure10.png)
 
 5. Guarda el archivo de configuración JSON.
    Deberías ver que `sqlcl` aparece en la sección **Installed MCP Servers**.
-   Si el botón aparece en rojo, haz clic en el botón de **refrescar**.
+   Si el botón aparece en rojo, haz clic en el botón de **refrescar**.Es posible que durante la instalacion la pantalla de los servidores `MCP` en `Cline` indique problemas de conexion al servidor MCP, debes refrescar posterior a la instalacion de Java y ahi indicara de manera correcta que conecto al servidor MCP.
+
 
    ![Figura 22](img/figure22.png)
 
@@ -602,6 +602,7 @@ Puedes consultar esta tabla para ver un historial de:
 **Gracias**
 
 ---
+
 
 
 
