@@ -111,13 +111,14 @@ Luego haz clic en **Download** en la parte inferior derecha.
 
 ## Tarea 2: Instalación de la extensión miniconda, VSCODE y Extensiones de VSCODE
 ### Instalar miniconda
-Dentro de la maquina virtual abres un explorador y copias la siguiente url.
-- https://idi1o0a010nx.objectstorage.us-chicago-1.oci.customer-oci.com/n/idi1o0a010nx/b/archivos_publicos/o/Miniconda3-latest-Windows-x86_64.exe<p>
+Dentro de la maquina virtual abres un explorador (edge) y copias la siguiente url.
+- https://idi1o0a010nx.objectstorage.us-chicago-1.oci.customer-oci.com/n/idi1o0a010nx/b/archivos_publicos/o/Miniconda3-latest-Windows-x86_64.exe<br>
+Luego de la descarga solo la ejecutas y vas indicando `Next` en cada paso y lo mantienes tal cual si hacer cambios.
+Ahora te toca instalar VSCODE dentro de la maquina virtual y en el mismo explorador copias la siguiente url.<p>
 
 ### Instalar VSCODE
-Luego de la descarga solo la ejecutas y vas indicando `Next` en cada paso y lo mantienes tal cual si hacer cambios.
-Ahora te toca instalar VSCODE dentro de la maquina virtual y en el mismo explorador copias la siguiente url.
-- https://idi1o0a010nx.objectstorage.us-chicago-1.oci.customer-oci.com/n/idi1o0a010nx/b/archivos_publicos/o/VSCodeUserSetup-x64-1.105.1.exe
+Realizas el mismo paso de copiar la siguiente url y la pegas en el explorador (edge)
+- https://idi1o0a010nx.objectstorage.us-chicago-1.oci.customer-oci.com/n/idi1o0a010nx/b/archivos_publicos/o/VSCodeUserSetup-x64-1.105.1.exe<br>
 Luego de la descarga solo la ejecutas y vas indicando `Next` en cada paso y lo mantienes tal cual si hacer cambios.
 
 ### Instalacion de la extension SQL Developer
@@ -598,6 +599,7 @@ Puedes consultar esta tabla para ver un historial de:
 **Gracias**
 
 ---
+
 
 
 
