@@ -159,7 +159,7 @@ Para permitir el acceso remoto a la futura máquina Windows, será necesario abr
 
 3. Configure los siguientes valores:
    - **Protocolo:** TCP  
-   - **Puerto de destino:** 3389  
+   - **Puerto de destino:** 3389,5678  
    - **Origen:** 0.0.0.0/0  
    - **Descripción:** Acceso remoto (RDP)
 
