@@ -192,7 +192,7 @@ La **Autonomous Database (ADB)** permite crear un entorno de base de datos total
    | Compartimento | Seleccione el compartimento configurado |
    | Nombre para mostrar | `PL` |
    | Nombre de la base de datos | `PL` |
-   | Tipo de carga de trabajo | Almacén de datos |
+   | Tipo de carga de trabajo | Lakehouse |
    | Tipo de despliegue | Sin servidor |
 
    ![Figura 20](img/Picture20.png)
