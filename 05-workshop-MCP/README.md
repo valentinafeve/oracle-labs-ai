@@ -238,7 +238,8 @@ Para esta demostración se utilizará la **opción gratuita**.
 Incluye la funcionalidad de **servidor MCP**, que permite a asistentes de IA y agentes de codificación interactuar con la base de datos de forma segura.
 
 > ⚠️ **Importante:**
-> Necesitas la versión **25.2 o posterior** de SQLcl.
+> Necesitas la versión **25.2 o posterior** de SQLcl, la cual puedes descargar del siguiente link en un navegador.
+> https://www.oracle.com/database/sqldeveloper/technologies/sqlcl/download/
 > La funcionalidad de servidor MCP se introdujo en la versión 25.2; versiones anteriores no funcionarán para este laboratorio.
 
 ### Opciones de instalación
@@ -332,7 +333,7 @@ El servidor MCP actúa como un **puente seguro**, permitiendo que Cline:
 
 4. **Nota sobre Java:**
    Para configurar y utilizar SQLcl es requisito previo tener **Java** instalado.
-   Si aparece una ventana solicitando su instalación, simplemente procede a instalar Java antes de continuar con la configuración.
+   Si aparece una ventana solicitando su instalación, simplemente procede a instalar Java antes de continuar con la configuración. Es posible que durante la instalacion la pantalla de los servidores `MCP` en `Cline` indique problemas de conexion al servidor MCP, debes refrescar posterior a la instalacion de Java y ahi indicara de manera correcta que conecto al servidor MCP.
 
    ![Figura 10](img/figure10.png)
 
@@ -601,6 +602,7 @@ Puedes consultar esta tabla para ver un historial de:
 **Gracias**
 
 ---
+
 
 
 
