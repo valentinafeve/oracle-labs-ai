@@ -149,7 +149,7 @@ La **Virtual Cloud Network (VCN)** es la red virtual que conecta los recursos de
 
 ## 🔒 5. Configuración de Listas de Seguridad
 
-Para permitir el acceso remoto a la futura máquina Windows, será necesario abrir el puerto **3389 (RDP)**.
+Para permitir el acceso remoto a la futura máquina Windows, será necesario abrir el puerto **3389,5678 (RDP)**.
 
 1. En el menú de la VCN, seleccione **Seguridad**.  
    
