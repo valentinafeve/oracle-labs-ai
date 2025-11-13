@@ -42,7 +42,10 @@ npx n8n
 ```powershell
 npx n8n --version
 ```
-
+### Activar n8n
+```powershell
+n8n start
+```
 
 ## 🌐 Acceso a la Interfaz Web
 
