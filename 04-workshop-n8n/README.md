@@ -30,7 +30,10 @@ npx n8n
 
 
 ## 📁 Ejecución de n8n
-
+**Ejecutar N8N**
+   ```powershell
+   $env:N8N_USER_FOLDER="C:\n8n-data"
+   ```
 **Ejecutar N8N**
    ```powershell
    npx n8n
