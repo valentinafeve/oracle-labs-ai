@@ -24,6 +24,7 @@ node --version
 Este método no requiere instalación global y siempre usa la versión más reciente:
 
 ```powershell
+$env:N8N_USER_FOLDER="C:\n8n-data"
 npx n8n
 ```
 
