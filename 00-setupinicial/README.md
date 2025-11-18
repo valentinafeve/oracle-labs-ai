@@ -279,6 +279,33 @@ Una vez creada la red y la base de datos, el siguiente paso es desplegar una **i
     
 ---
 
+## 💻 8. Aprovisionamiento del Servicio AIDP 
+
+1. Acceder a Oracle Cloud, buscar la opcion **Analytics AI**<br>
+
+![Analytics AI](img/Picture1.png)
+
+2. Crear el servicio **AI Data Platform** sobre el compartment llamado `AIWORKSHOP`.<p>
+Debes ingresar al botón de crear `Create AI Data Platform`. En la primera sección indicar el nombre del servicio “AIDP_DEMO” y una descripción opcional.
+
+![AIDP Arquitectura Medallon](img/Picture2.png)
+
+4. Crear un **workspace** para notebooks, modelos y otros servicios, por ejemplo: `customer_analytics`.En la sección del workspace debes indicar un nombre al espacio de trabajo para los notebooks, modelos y otros servicios de trabajo. Indica el nombre “CUSTOMER_ANALYTICS” y una descripción adicional. En el cual vamos a montar el ejercicio de análisis de clientes.
+
+![AIDP Arquitectura Medallon](img/Picture3.png)
+
+5. Seleccionar las políticas `Standard` durante el aprovisionamiento.En las políticas a generar indicar las políticas “Standard” con lo cual el servicio realiza todos los ajustes necesarios para poder levantar el servicio
+
+![AIDP Arquitectura Medallon](img/Picture4.png)
+
+6. Una vez activo, acceder al servicio y usar la URL para compartir con miembros del equipo. Hacer "click" en el hipervinculo.
+
+![AIDP Arquitectura Medallon](img/Picture5.png)
+
+Luego de algunos minutos el servicio estará activo con nombre “AIDP_DEMO” y solo se necesita darle click en el vinculo del servicio. Dicho servicio se abrirá en una nueva pestana del navegador y esa url podrá ser compartida con otros usuarios del equipo a la hora de trabajar y con SSO pueden ingresar a la plataforma.![AIDP Arquitectura Medallon](img/Picture6.png)
+
+---
+
 ## 🧾 Notas Finales
 
 - 🔒 Guarde sus claves privadas de forma segura.  
