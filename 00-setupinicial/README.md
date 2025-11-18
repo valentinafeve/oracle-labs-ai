@@ -302,7 +302,9 @@ Debes ingresar al botón de crear `Create AI Data Platform`. En la primera secci
 
 ![AIDP Arquitectura Medallon](img/Picture85.png)
 
-Luego de algunos minutos el servicio estará activo con nombre “AIDP_DEMO” y solo se necesita darle click en el vinculo del servicio. Dicho servicio se abrirá en una nueva pestana del navegador y esa url podrá ser compartida con otros usuarios del equipo a la hora de trabajar y con SSO pueden ingresar a la plataforma.![AIDP Arquitectura Medallon](img/Picture6.png)
+Luego de algunos minutos el servicio estará activo con nombre “AIDP_DEMO” y solo se necesita darle click en el vinculo del servicio. Dicho servicio se abrirá en una nueva pestana del navegador y esa url podrá ser compartida con otros usuarios del equipo a la hora de trabajar y con SSO pueden ingresar a la plataforma.
+
+![AIDP Arquitectura Medallon](img/Picture86.png)
 
 ---
 
