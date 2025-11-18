@@ -28,10 +28,15 @@ $env:N8N_USER_FOLDER="C:\n8n-data"
 npx n8n
 ```
 
+## Ajuste variable en memoria
+   ```
+   export N8N_SECURE_COOKIE=false
+   ```
 
 ## 📁 Ejecución de n8n
 **Ejecutar N8N**
    ```powershell
+   
    $env:N8N_USER_FOLDER="C:\n8n-data"
    ```
 **Ejecutar N8N**
