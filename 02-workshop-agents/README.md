@@ -68,3 +68,4 @@ Esto se puede realizar de 2 formas:
 - Con **Shift + Enter**
 - Con el boton de la barra superior de Play ▶️
 Puedes bajar al punto 1.4 y ejecutarlo para instalar las librerias necesarias.
+![Data Science](images/imagen9.png)
