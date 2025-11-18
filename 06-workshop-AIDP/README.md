@@ -10,7 +10,7 @@ Hoy en dia las empresas estan buscando trabajar sobre una arquitectura medallon.
 ![AIDP Arquitectura Medallon](img/Picture0.png)
 
 ## Aprovisionamiento del Servicio AIDP (Opcional)
-# (si ya lo ejecutaste en el setup inicial pasar a la crecion de catalogos)
+# (si ya lo ejecutaste en el setup inicial pasar a la creación de catalogos)
 
 1. Acceder a Oracle Cloud, buscar la opcion **Analytics AI**<br>
 
