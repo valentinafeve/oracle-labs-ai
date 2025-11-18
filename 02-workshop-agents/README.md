@@ -58,3 +58,13 @@ La llave privada generada en el setup inicial que se guardó en el archivo `.pem
 También debe cargarse de la misma manera que con los notebooks ⬆️.
 
 > **⚠️ Importante:** El archivo debe tener el siguiente nombre dentro de DataScience para poder usarlo: `oci_api_key.pem`. Puedes renombrarlo antes de subir dicho archivo al servicio.
+
+---
+## 📓 Ejecutar el primer notebook de python en Jupyter 01_GenAI_Langchain.ipynb
+Cuando abres el notebook dentro encontraras la mayoria de las instrucciones de como ir ejecutando.
+
+Algunos puntos importantes de jupyter para ejecucion es que cada una de las celdas por separado se deben ejecutar individualmente.
+Esto se puede realizar de 2 formas: 
+- Con **Shift + Enter**
+- Con el boton de la barra superior de Play ▶️
+Puedes bajar al punto 1.4 y ejecutarlo para instalar las librerias necesarias.
