@@ -63,7 +63,7 @@ También debe cargarse de la misma manera que con los notebooks ⬆️.
 ## 📓 Ejecutar el primer notebook de python en Jupyter 01_GenAI_Langchain.ipynb
 Cuando abres el notebook dentro encontraras la mayoria de las instrucciones de como ir ejecutando.
 
-Algunos puntos importantes de jupyter para ejecucion es que cada una de las celdas por separado se deben ejecutar individualmente.
+Algunos puntos importantes de jupyter para ejecución es que cada una de las celdas por separado se deben ejecutar individualmente.
 Esto se puede realizar de 2 formas: 
 - Con **Shift + Enter**
 - Con el boton de la barra superior de Play ▶️
