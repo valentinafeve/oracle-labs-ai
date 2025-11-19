@@ -23,15 +23,16 @@ node --version
 ### Método 1: Usando npx (Recomendado)
 Este método no requiere instalación global y siempre usa la versión más reciente:
 
-```powershell
+```powershell en modo administrador para darle la ruta instalacion
 $env:N8N_USER_FOLDER="C:\n8n-data"
+```
+```luego se ejecuta el siguiente comando
 npx n8n
 ```
-
 ## Ajuste variable en memoria
-   ```
-   export N8N_SECURE_COOKIE=false
-   ```
+```
+export N8N_SECURE_COOKIE=false
+```
 
 ## 📁 Ejecución de n8n
 **Ejecutar N8N**
