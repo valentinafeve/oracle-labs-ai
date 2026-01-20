@@ -1,0 +1,293 @@
+# AI Private Agent Factory
+
+## Paso 1: Creación de un compartment
+
+Es necesario crear un compartment para gestionar nuestros recursos y accesos de forma ordenada. Para esto vamos a la sección de compartments
+
+<aside>
+💡
+
+Identity and security > Compartments
+
+</aside>
+
+![image.png](AI%20Private%20Agent%20Factory/image.png)
+
+Aquí podemos crear el compartment con los siguientes datos:
+
+```sql
+Name: ora26ai
+Description: Testing AI in Oracle
+```
+
+![image.png](AI%20Private%20Agent%20Factory/image%201.png)
+
+## Paso 2: Creación de una política
+
+El paso siguiente es crear una política
+
+<aside>
+💡
+
+Identity and Security > Policies
+
+</aside>
+
+En la página principal de las políticas podemos hacer clic en Create Policy
+
+![image.png](AI%20Private%20Agent%20Factory/image%202.png)
+
+```sql
+Name: ora26ai
+Description: Allows any user to manage all the resources in the compartment
+```
+
+Hacemos clic en Show manual editor, esto abrirá un cuadro de texto en donde podemos agregar la siguiente información
+
+```sql
+Allow any-user to manage all-resources in compartment ora26ai
+```
+
+Para finalizar hacemos clic en Create
+
+![image.png](AI%20Private%20Agent%20Factory/image%203.png)
+
+## Paso 3: Creación de una base de datos
+
+<aside>
+💡
+
+**Oracle AI Database > Autonomous AI Databases**
+
+</aside>
+
+Es importante seleccionar nuestro compartment, una vez seleccionado procedemos a la creación.
+
+![image.png](AI%20Private%20Agent%20Factory/image%204.png)
+
+Para la creación de la base de datos es importante seleccionar las siguientes características
+
+```sql
+Workload type: Lakehouse o Transaction Processing
+Database version: 26ai ⚠️ Importante. Muchas características de IA están soportadas desde la versión 23ai
+ECPU Count: 4 Recomendamos un número mayor a 2
+Storage: Desde 512GB será suficiente para el demo
+Access type: Secure Access from Everywhere
+```
+
+Los demás campos pueden quedar por defecto, una vez seleccionada la contraseña, la página de la base de datos entrará en estado Provisioning, el cuál tardará al rededor de 5 minutos.
+
+![Screenshot 2026-01-19 at 12.11.56 PM.png](AI%20Private%20Agent%20Factory/Screenshot_2026-01-19_at_12.11.56_PM.png)
+
+### Paso 3.1: Creación y configuración del usuario
+
+Cuando la base de datos esté en estado available podemos acceder a esta y ejecutar comandos SQL
+
+![image.png](AI%20Private%20Agent%20Factory/image%205.png)
+
+Dentro del SQL, ejecutaremos el siguiente script, el cuál creará el usuario y asignará los permisos necesasrios
+
+```sql
+CREATE USER <DB_USER> IDENTIFIED BY <DB_PASSWORD> DEFAULT TABLESPACE USERS QUOTA unlimited ON USERS;
+ GRANT CONNECT, RESOURCE, CREATE TABLE, CREATE SYNONYM, CREATE DATABASE LINK, CREATE ANY INDEX, INSERT ANY TABLE, CREATE SEQUENCE, CREATE TRIGGER, CREATE USER, DROP USER TO <DB_USER>;
+ GRANT CREATE SESSION TO <DB_USER> WITH ADMIN OPTION;
+ GRANT READ, WRITE ON DIRECTORY DATA_PUMP_DIR TO <DB_USER>;
+ GRANT SELECT ON SYS.V_$PARAMETER TO <DB_USER>;
+```
+
+### Paso 3.2: Descarga de la Wallet
+
+En la página de la base de datos, junto al botón Database actions, encontramos el botón de conexiones. 
+
+![image.png](AI%20Private%20Agent%20Factory/image%206.png)
+
+Aquí podremos descargar la Wallet
+
+![image.png](AI%20Private%20Agent%20Factory/image%207.png)
+
+Este paso pedirá una contraseña, no debe ser la misma contraseña que proporcionamos al crear la base de datos. Si todo se ejecutó correctamente, un archivo .zip será descargado.
+
+## Paso 4: Creación de una red
+
+En la consola de Oracle, podemos configurar una red virtual privada dentro de nuestro compartment.
+
+<aside>
+💡
+
+Networking > Virtual Cloud Networks
+
+</aside>
+
+Es importante seleccionar nuestro compartment, una vez seleccionado procedemos a la creación.
+
+![image.png](AI%20Private%20Agent%20Factory/image%208.png)
+
+Vamos a crear una red con acceso a internet
+
+![image.png](AI%20Private%20Agent%20Factory/image%209.png)
+
+En la creación solamente debemos seleccionar un nombre
+
+```sql
+Name: vcn-agent
+```
+
+El resto de los valores pueden dejarse por defecto, al presionar Next y luego Create, podemos esperar unos segundos por la creación de la vcn.
+
+### Paso 4.1: Configuración de puertos
+
+Cuando la VCN se haya creado correctamente, en el panel Security podremos ver el bloque de listas de seguridad Security Lists
+
+![image.png](AI%20Private%20Agent%20Factory/image%2010.png)
+
+Podemos seleccionar la lista de seguridad por default, su nombre empezará por el texto Default Security List for …
+
+![image.png](AI%20Private%20Agent%20Factory/image%2011.png)
+
+Dentro de la lista se seguridad podemos navegar a Security rules, en donde debemos agregar las reglas de ingreso
+
+![image.png](AI%20Private%20Agent%20Factory/image%2012.png)
+
+![image.png](AI%20Private%20Agent%20Factory/image%2013.png)
+
+Agregaremos las siguientes reglas:
+
+![image.png](AI%20Private%20Agent%20Factory/image%2014.png)
+
+```sql
+Source CIDR: 0.0.0.0/0
+Destination Port Range: 8080
+```
+
+![image.png](AI%20Private%20Agent%20Factory/image%2015.png)
+
+```sql
+Source CIDR: 0.0.0.0/0
+Destination Port Range: 1521
+```
+
+Para confirmar la creación seleccionamos Add Ingress Rules
+
+![image.png](AI%20Private%20Agent%20Factory/image%2016.png)
+
+## Paso 5: Despliegue del marketplace
+
+Ahora vamos a navegar hasta el marketplace, en la consola de Oracle podemos navegar a
+
+<aside>
+💡
+
+Marketplace > All Applications
+
+</aside>
+
+Allí veremos una barra de búsqueda
+
+![image.png](AI%20Private%20Agent%20Factory/image%2017.png)
+
+En donde podemos buscar la siguiente aplicación
+
+```sql
+Oracle AI Database Private Agent Factory
+```
+
+![image.png](AI%20Private%20Agent%20Factory/image%2018.png)
+
+Aquí podemos seleccionar la app y crear el stack
+
+![image.png](AI%20Private%20Agent%20Factory/image%2019.png)
+
+Es importante seleccionar nuestro compartment, una vez seleccionado procedemos a la creación.
+
+![image.png](AI%20Private%20Agent%20Factory/image%2020.png)
+
+Para el lanzamiento del stack hay 3 steps, en el primer step podemos dejar los valores por default
+
+En el segundo step seleccionamos
+
+```sql
+Compartment: El compartment que creamos previamente
+VCN: La VCN creada previamente
+Existing subnet: La subred pública
+Agent Factory server shape: VM.Standard.E5.Flex
+Agent Factory OCPUs (Flex only): 16
+Agent Factory Memory (GB) (Flex only): 128
+```
+
+Este step toma 3 o 4 minutos.
+
+El botón de creación nos lleva a la página del Stack en donde podemos ver los jobs de ejecución, si todo se ejecutó correctamente el último log mostrará un link.
+
+### Paso 5.1: Creación del api key
+
+Para crear el api key, podemos usar el siguiente paso a paso [Creación de un api key paso a paso](../utils/Creación%20de%20credenciales.md)
+
+Al agregar la key podremos ver los detalles de la configuración
+
+```yaml
+[DEFAULT]
+user=ocid1.user...
+fingerprint=a8::::
+tenancy=ocid1.tenancy...
+region=us-chicago-1
+```
+
+Estos datos nos servirán para la configuración en la app
+
+### Paso 5.2: Registro y conexión
+
+Al ingresar al link tenemos una página de registro
+
+![image.png](AI%20Private%20Agent%20Factory/image%2025.png)
+
+Después del registro podemos realizar la conexión a la base de datos, para esto usaremos la wallet descargada
+
+![image.png](AI%20Private%20Agent%20Factory/image%2026.png)
+
+Al testear la conexión aparecerá un mensaje de conexión exitosa si la conexión a la base de datos fue exitosa.
+
+![image.png](AI%20Private%20Agent%20Factory/image%2027.png)
+
+Al presionar siguiente podemos ver los logs de instalación.
+
+En el paso 4 será necesario configurar el modelo de lenguaje
+
+![image.png](AI%20Private%20Agent%20Factory/image%2028.png)
+
+```yaml
+Model id: meta.llama-4-maverick-17b-128e-instruct-fp8 # o cualquier modelo disponible en https://cloud.oracle.com/ai-service/generative-ai/playground/chat
+Endpoint: https://inference.generativeai.us-chicago-1.oci.oraclecloud.com # Cambiar según la región
+Compartment ID: ocid1.compartment... # Id del compartment creado. Disponible en Identity and Security > Compartments
+User ID: ocid1.user.oc1... # User id. Disponible en Identity > My profile 
+
+```
+
+![image.png](AI%20Private%20Agent%20Factory/image%2029.png)
+
+Al hacer scroll hacia abajo aparecerá la opción de agregar modelos de embeddings
+
+![image.png](AI%20Private%20Agent%20Factory/image%2030.png)
+
+Al seleccionar OCI Gen AI, aparecerá un formulario parecido al anterior, aquí cambiará únicamente el id del modelo
+
+```yaml
+Model id: cohere.embed-multilingual-image-v3.0 # o cualquier modelo disponible en https://cloud.oracle.com/ai-service/generative-ai/playground/embed
+Endpoint: https://inference.generativeai.us-chicago-1.oci.oraclecloud.com # Cambiar según la región
+Compartment ID: ocid1.compartment... # Id del compartment creado. Disponible en Identity and Security > Compartments
+User ID: ocid1.user.oc1... # User id. Disponible en Identity > My profile 
+
+```
+
+Al completar los campos y si las conexiones son exitosas, podemos continuar la instalación
+
+![image.png](AI%20Private%20Agent%20Factory/image%2031.png)
+
+![image.png](AI%20Private%20Agent%20Factory/image%2032.png)
+
+Al finalizar la instalación podemos seleccionar una template de la galería de templates. Para este ejemplo probaré el PDF to blog converter
+
+![image.png](AI%20Private%20Agent%20Factory/image%2033.png)
+
+Un flow me permitirá editar y diseñar agentes utilizando la siguiente interfaz
+
+![image.png](AI%20Private%20Agent%20Factory/image%2034.png)
