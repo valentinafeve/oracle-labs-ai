@@ -1,14 +1,113 @@
 # RAG
 
-Created: January 19, 2026 11:46 AM
+En este laboratorio aprenderás a construir paso a paso un sistema de Retrieval-Augmented Generation (RAG) utilizando Oracle Autonomous Database 26ai y los servicios de Oracle Generative AI. A lo largo del ejercicio, configurarás credenciales, políticas y recursos en OCI, cargarás y vectorizarás documentos directamente en la base de datos, y finalmente combinarás búsqueda semántica con modelos de lenguaje para generar respuestas contextualizadas en lenguaje natural.
 
-## Paso 1: Creación de un API Key
+El objetivo es demostrar cómo Oracle permite implementar arquitecturas RAG de forma nativa, segura y eficiente, sin necesidad de mover datos fuera de la base de datos, aprovechando capacidades avanzadas como vectores, modelos ONNX, y LLMs bajo demanda. Al finalizar el laboratorio, tendrás una solución funcional que integra datos, embeddings y generación de texto en un solo flujo end-to-end.
+
+## Paso 1: Creación del api key
 
 Para crear el api key, podemos usar el siguiente paso a paso [Creación de un api key paso a paso](../utils/Creación%20de%20credenciales.md)
 
 Al agregar la key podremos ver los detalles de la configuración
 
-## Paso 2: Configuración de credenciales
+```yaml
+[DEFAULT]
+user=ocid1.user...
+fingerprint=a8::::
+tenancy=ocid1.tenancy...
+region=us-chicago-1
+```
+
+Estos datos nos servirán para la configuración en la app
+
+
+## Paso 2: Creación de un compartment
+
+Es necesario crear un compartment para gestionar nuestros recursos y accesos de forma ordenada. Para esto vamos a la sección de compartments
+
+<aside>
+💡
+
+Identity and security > Compartments
+
+</aside>
+
+![image.png](images/image.png)
+
+Aquí podemos crear el compartment con los siguientes datos:
+
+```sql
+Name: ora26ai
+Description: Testing AI in Oracle
+```
+
+![image.png](images/image%201.png)
+
+## Paso 3: Creación de una política
+
+El paso siguiente es crear una política
+
+<aside>
+💡
+
+Identity and Security > Policies
+
+</aside>
+
+En la página principal de las políticas podemos hacer clic en Create Policy
+
+![image.png](images/image%202.png)
+
+```sql
+Name: ora26ai
+Description: Allows any user to manage all the resources in the compartment
+```
+
+Hacemos clic en Show manual editor, esto abrirá un cuadro de texto en donde podemos agregar la siguiente información
+
+```sql
+Allow any-user to manage all-resources in compartment ora26ai
+```
+
+Para finalizar hacemos clic en Create
+
+![image.png](images/image%203.png)
+
+## Paso 4: Creación de una base de datos
+
+<aside>
+💡
+
+**Oracle AI Database > Autonomous AI Databases**
+
+</aside>
+
+Es importante seleccionar nuestro compartment, una vez seleccionado procedemos a la creación.
+
+![image.png](images/image%204.png)
+
+Para la creación de la base de datos es importante seleccionar las siguientes características
+
+```sql
+Workload type: Transaction Processing
+Database version: 26ai ⚠️ Importante. Muchas características de IA están soportadas desde la versión 23ai
+ECPU Count: 4 Recomendamos un número mayor a 2
+Storage: Desde 512GB será suficiente para el demo
+Access type: Secure Access from Everywhere
+```
+
+Los demás campos pueden quedar por defecto, una vez seleccionada la contraseña, la página de la base de datos entrará en estado Provisioning, el cuál tardará al rededor de 5 minutos.
+
+![Screenshot 2026-01-19 at 12.11.56 PM.png](images/Screenshot_2026-01-19_at_12.11.56_PM.png)
+
+### Paso 4.1: Ingreso a la consola SQL
+
+Cuando la base de datos esté en estado available podemos acceder a esta y ejecutar comandos SQL
+
+![image.png](images/image%205.png)
+
+
+## Paso 5: Configuración de credenciales
 
 Para realizar la conexión a los servicios de inteligencia artificial, es necesario que la base de datos cuente con las credenciales adecuadas que le permitan acceder a dichos servicios.
 
@@ -47,7 +146,7 @@ END;
 
 Una vez las credenciales han sido creadas correctamente, es importante validar que la base de datos pueda realizar **requests** al servicio de inteligencia artificial generativa, confirmando así que la conexión se encuentra correctamente configurada.
 
-## Paso 3: Creación de funciones y configuración del ambiente
+## Paso 6: Creación de funciones y configuración del ambiente
 
 Es importante cambiar el valor ocid1.compartment. por nuestro compartment
 
@@ -349,7 +448,7 @@ END;
 
 ```
 
-## Paso 4: Probemos
+## Paso 7: Probemos
 
 Perfecto, si la función se creó correctamente, podemos ejecutarla
 

@@ -1,5 +1,22 @@
 # AI Private Agent Factory
 
+## Paso 1: Creación del api key
+
+Para crear el api key, podemos usar el siguiente paso a paso [Creación de un api key paso a paso](../utils/Creación%20de%20credenciales.md)
+
+Al agregar la key podremos ver los detalles de la configuración
+
+```yaml
+[DEFAULT]
+user=ocid1.user...
+fingerprint=a8::::
+tenancy=ocid1.tenancy...
+region=us-chicago-1
+```
+
+Estos datos nos servirán para la configuración en la app
+
+
 ## Paso 1: Creación de un compartment
 
 Es necesario crear un compartment para gestionar nuestros recursos y accesos de forma ordenada. Para esto vamos a la sección de compartments
@@ -79,7 +96,19 @@ Los demás campos pueden quedar por defecto, una vez seleccionada la contraseña
 
 ![Screenshot 2026-01-19 at 12.11.56 PM.png](AI%20Private%20Agent%20Factory/Screenshot_2026-01-19_at_12.11.56_PM.png)
 
-### Paso 3.1: Creación y configuración del usuario
+### Paso 3.1: Descarga de la Wallet
+
+En la página de la base de datos, junto al botón Database actions, encontramos el botón de conexiones. 
+
+![image.png](AI%20Private%20Agent%20Factory/image%206.png)
+
+Aquí podremos descargar la Wallet
+
+![image.png](AI%20Private%20Agent%20Factory/image%207.png)
+
+Este paso pedirá una contraseña, no debe ser la misma contraseña que proporcionamos al crear la base de datos. Si todo se ejecutó correctamente, un archivo .zip será descargado.
+
+### Paso 3.2: Creación y configuración del usuario
 
 Cuando la base de datos esté en estado available podemos acceder a esta y ejecutar comandos SQL
 
@@ -95,17 +124,6 @@ CREATE USER <DB_USER> IDENTIFIED BY <DB_PASSWORD> DEFAULT TABLESPACE USERS QUOTA
  GRANT SELECT ON SYS.V_$PARAMETER TO <DB_USER>;
 ```
 
-### Paso 3.2: Descarga de la Wallet
-
-En la página de la base de datos, junto al botón Database actions, encontramos el botón de conexiones. 
-
-![image.png](AI%20Private%20Agent%20Factory/image%206.png)
-
-Aquí podremos descargar la Wallet
-
-![image.png](AI%20Private%20Agent%20Factory/image%207.png)
-
-Este paso pedirá una contraseña, no debe ser la misma contraseña que proporcionamos al crear la base de datos. Si todo se ejecutó correctamente, un archivo .zip será descargado.
 
 ## Paso 4: Creación de una red
 
@@ -218,23 +236,8 @@ Este step toma 3 o 4 minutos.
 
 El botón de creación nos lleva a la página del Stack en donde podemos ver los jobs de ejecución, si todo se ejecutó correctamente el último log mostrará un link.
 
-### Paso 5.1: Creación del api key
 
-Para crear el api key, podemos usar el siguiente paso a paso [Creación de un api key paso a paso](../utils/Creación%20de%20credenciales.md)
-
-Al agregar la key podremos ver los detalles de la configuración
-
-```yaml
-[DEFAULT]
-user=ocid1.user...
-fingerprint=a8::::
-tenancy=ocid1.tenancy...
-region=us-chicago-1
-```
-
-Estos datos nos servirán para la configuración en la app
-
-### Paso 5.2: Registro y conexión
+### Paso 5.1: Registro y conexión
 
 Al ingresar al link tenemos una página de registro
 
