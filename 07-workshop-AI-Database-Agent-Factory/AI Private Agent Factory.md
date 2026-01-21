@@ -17,7 +17,7 @@ region=us-chicago-1
 Estos datos nos servirán para la configuración en la app
 
 
-## Paso 1: Creación de un compartment
+## Paso 2: Creación de un compartment
 
 Es necesario crear un compartment para gestionar nuestros recursos y accesos de forma ordenada. Para esto vamos a la sección de compartments
 
@@ -39,7 +39,7 @@ Description: Testing AI in Oracle
 
 ![image.png](AI%20Private%20Agent%20Factory/image%201.png)
 
-## Paso 2: Creación de una política
+## Paso 3: Creación de una política
 
 El paso siguiente es crear una política
 
@@ -69,7 +69,7 @@ Para finalizar hacemos clic en Create
 
 ![image.png](AI%20Private%20Agent%20Factory/image%203.png)
 
-## Paso 3: Creación de una base de datos
+## Paso 4: Creación de una base de datos
 
 <aside>
 💡
@@ -96,7 +96,7 @@ Los demás campos pueden quedar por defecto, una vez seleccionada la contraseña
 
 ![Screenshot 2026-01-19 at 12.11.56 PM.png](AI%20Private%20Agent%20Factory/Screenshot_2026-01-19_at_12.11.56_PM.png)
 
-### Paso 3.1: Descarga de la Wallet
+### Paso 4.1: Descarga de la Wallet
 
 En la página de la base de datos, junto al botón Database actions, encontramos el botón de conexiones. 
 
@@ -108,7 +108,7 @@ Aquí podremos descargar la Wallet
 
 Este paso pedirá una contraseña, no debe ser la misma contraseña que proporcionamos al crear la base de datos. Si todo se ejecutó correctamente, un archivo .zip será descargado.
 
-### Paso 3.2: Creación y configuración del usuario
+### Paso 4.2: Creación y configuración del usuario
 
 Cuando la base de datos esté en estado available podemos acceder a esta y ejecutar comandos SQL
 
@@ -125,7 +125,7 @@ CREATE USER <DB_USER> IDENTIFIED BY <DB_PASSWORD> DEFAULT TABLESPACE USERS QUOTA
 ```
 
 
-## Paso 4: Creación de una red
+## Paso 5: Creación de una red
 
 En la consola de Oracle, podemos configurar una red virtual privada dentro de nuestro compartment.
 
@@ -152,7 +152,7 @@ Name: vcn-agent
 
 El resto de los valores pueden dejarse por defecto, al presionar Next y luego Create, podemos esperar unos segundos por la creación de la vcn.
 
-### Paso 4.1: Configuración de puertos
+### Paso 5.1: Configuración de puertos
 
 Cuando la VCN se haya creado correctamente, en el panel Security podremos ver el bloque de listas de seguridad Security Lists
 
@@ -188,7 +188,7 @@ Para confirmar la creación seleccionamos Add Ingress Rules
 
 ![image.png](AI%20Private%20Agent%20Factory/image%2016.png)
 
-## Paso 5: Despliegue del marketplace
+## Paso 6: Despliegue del marketplace
 
 Ahora vamos a navegar hasta el marketplace, en la consola de Oracle podemos navegar a
 
@@ -237,7 +237,7 @@ Este step toma 3 o 4 minutos.
 El botón de creación nos lleva a la página del Stack en donde podemos ver los jobs de ejecución, si todo se ejecutó correctamente el último log mostrará un link.
 
 
-### Paso 5.1: Registro y conexión
+### Paso 6.1: Registro y conexión
 
 Al ingresar al link tenemos una página de registro
 
@@ -286,6 +286,8 @@ Al completar los campos y si las conexiones son exitosas, podemos continuar la i
 ![image.png](AI%20Private%20Agent%20Factory/image%2031.png)
 
 ![image.png](AI%20Private%20Agent%20Factory/image%2032.png)
+
+## Paso 7: Probemos
 
 Al finalizar la instalación podemos seleccionar una template de la galería de templates. Para este ejemplo probaré el PDF to blog converter
 

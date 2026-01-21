@@ -98,7 +98,7 @@ Access type: Secure Access from Everywhere
 
 Los demás campos pueden quedar por defecto, una vez seleccionada la contraseña, la página de la base de datos entrará en estado Provisioning, el cuál tardará al rededor de 5 minutos.
 
-![Screenshot 2026-01-19 at 12.11.56 PM.png](images/Screenshot_2026-01-19_at_12.11.56_PM.png)
+![Screenshot 2026-01-19 at 12.11.56 PM.png](images/image%2035.png)
 
 ### Paso 4.1: Ingreso a la consola SQL
 
