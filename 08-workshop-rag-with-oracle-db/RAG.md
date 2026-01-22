@@ -130,6 +130,15 @@ begin
 end;
 ```
 
+Si sucede algún error con al realizar la conexión al modelo y necesitamos volver a crear la credencial, podemos ejecutar el siguiente comando. Este comando eliminará la credencial creada. Este comando debe utilizarse sólo si es necesario crear nuevamente la credencial OCI_CRED.
+
+```
+BEGIN
+   DBMS_CLOUD.DROP_CREDENTIAL('OCI_CRED');
+END;
+```
+
+
 Autorizamos la llamada al endpoint
 
 ```jsx
