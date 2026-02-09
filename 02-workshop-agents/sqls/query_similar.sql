@@ -1,9 +1,9 @@
 SELECT
-  p.persona,
+  p.CHUNK_DATA,
   VECTOR_DISTANCE(
-    p.persona_vec,
+    p.EMBED,
     VECTOR(:embedding),
     COSINE
   ) AS cosine_distance
-FROM personas100 p ORDER BY COSINE_DISTANCE
+FROM MOVII_INFO p ORDER BY COSINE_DISTANCE
 FETCH FIRST :max_results ROWS ONLY;
