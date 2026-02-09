@@ -39,14 +39,15 @@ Cuando se abre una nueva pestaña en su navegador 🌐 el servicio se muestra co
 
 ## 📂 Copia de Archivos
 
-De los archivos que se encuentran en este git debes descargarlos a tu computador 💻:
+De los archivos que se encuentran en el directorio 02-workshop-agents de este git debes descargarlos a tu computador 💻:
+- 📂 02-workshop-agents
+  - 📓 **01_GenAI_Langchain.ipynb**
+  - 📓 **02_multimodal_genai_local.ipynb** 
+  - 📓 **03_genai_local.ipynb**
+  - 📓...
+  - 🖼️ **demo-image.jpeg**
 
-- 📓 **01_GenAI_Langchain.ipynb**
-- 📓 **02_multimodal_genai_local.ipynb** 
-- 📓 **03_genai_local.ipynb**
-- 🖼️ **demo-image.jpeg**
-
-Luego de tenerlo en tu PC vas a cargarlos al servicio de DataScience tomando los archivos y los arrastras ⬆️ a la zona indicada en la siguiente imagen.
+Luego de tener el directorio en tu PC vas a cargarlos al servicio de DataScience tomando los archivos (o directorio) y los arrastras ⬆️ a la zona indicada en la siguiente imagen.
 
 ![Data Science](images/imagen8.png)
 
