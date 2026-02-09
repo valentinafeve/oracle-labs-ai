@@ -47,7 +47,7 @@ De los archivos que se encuentran en el directorio 02-workshop-agents de este gi
   - 📓...
   - 🖼️ **demo-image.jpeg**
 
-Luego de tener el directorio en tu PC vas a cargarlos al servicio de DataScience tomando el directorio(**⚠️ Importante:**) y los arrastras ⬆️ a la zona indicada en la siguiente imagen.
+Luego de tener el directorio en tu PC vas a cargarlos al servicio de DataScience tomando el directorio(**⚠️ Importante que se copie todo el directorio 02-workshop-agents**) y los arrastras ⬆️ a la zona indicada en la siguiente imagen.
 
 ![Data Science](images/imagen8.png)
 
