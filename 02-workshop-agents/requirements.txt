@@ -4,3 +4,4 @@ langchain-core==0.3.39
 langchain-text-splitters==0.3.6
 langsmith==0.3.45
 oracledb
+tavily-python==0.7.17
