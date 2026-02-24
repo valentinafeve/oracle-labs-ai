@@ -201,7 +201,7 @@ La **Autonomous Database (ADB)** permite crear un entorno de base de datos total
 
    | Campo | Valor |
    |--------|--------|
-   | Versión de la base de datos | 19c (o 26ai si su región lo soporta) |
+   | Versión de la base de datos | 26ai |
    | Recuento de ECPU | 2 |
    | Almacenamiento (TB) | 1 |
    | Autoescalado de cálculo | Activado |
