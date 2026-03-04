@@ -18,12 +18,16 @@ tenancy=ocid1.tenancy...
 region=us-chicago-1
 ```
 
-Estos datos nos servirán para la configuración en la app
+Estos datos nos servirán para la configuración en la app.
+
+> Copia el contenido de la credencial en un blog de notas.
 
 
-## Paso 2: Creación de un compartment
+
+## Paso 2: Creación de un compartment.
 
 Es necesario crear un compartment para gestionar nuestros recursos y accesos de forma ordenada. Para esto vamos a la sección de compartments
+
 
 <aside>
 💡
@@ -42,6 +46,23 @@ Description: Testing AI in Oracle
 ```
 
 ![image.png](images/image%201.png)
+
+### 2.1 Compartment ID
+
+> Para varios laboratorios vamos a requerir él ``Compartment ID`` este se puede obtener como se observa a continuación. 👇
+
+1. Ve a **Identity & Security** → **Compartments**.
+2. Busca y selecciona el compartment `ora26ai`.
+3. En los detalles, copia el valor de **OCID**.
+
+<details>
+<summary>📸 Obtener Compartment ID </summary>
+
+![comparment.png](images/comparment.png)
+
+</details>
+
+4. Copialo en un blog de notas.
 
 ## Paso 3: Creación de una política
 

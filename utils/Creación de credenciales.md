@@ -55,7 +55,7 @@ Este documento explica cómo **crear y descargar un API Key** en Oracle Cloud. A
 
 Después de crear el API Key, Oracle mostrará un bloque de texto con la **configuración sugerida** (por ejemplo, con campos como `user`, `fingerprint`, `tenancy`, `region`, `key_file`).
 
-1. Copia el bloque de configuración que aparece en la consola.
+### 1.1. Copia el bloque de configuración que aparece en la consola.
 
 ```ini
 [DEFAULT]
@@ -66,6 +66,24 @@ region=us-ashburn-1
 key_file=/RUTA/A/.oci/oci_api_key.pem
 ```
 
-2. Pegalo en tus notas para su uso posterior
+### 1.2 Obtener el Compartment ID
+
+Necesitarás el **Compartment ID** de `ora26ai` para configurar la aplicación posteriormente.
+
+### 1.3 Obtener el ID del compartment
+
+1. Ve a **Identity & Security** → **Compartments**.
+2. Busca y selecciona el compartment `ora26ai`.
+3. En los detalles, copia el valor de **OCID**.
+
+<details>
+<summary>📸 Ver cómo obtener el Compartment ID</summary>
+
+![comparment.png](../08-workshop-rag-with-oracle-db/images/comparment.png)
+
+</details>
+
+> 2. Pegalo en tus notas para su uso posterior
+
 
 ¡Y listo! Feliz autenticación
