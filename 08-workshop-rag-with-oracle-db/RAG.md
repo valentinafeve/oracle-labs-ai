@@ -134,21 +134,26 @@ Para realizar la conexión a los servicios de inteligencia artificial, es necesa
 
 Creamos una credencial llamada OCI_CRED con los datos generados a partir del api key.
 
-```jsx
-declare
+```sql
+BEGIN DBMS_CLOUD.DROP_CREDENTIAL(credential_name => 'OCI_CRED'); EXCEPTION WHEN OTHERS THEN NULL; END;
+/
+
+DECLARE
   jo json_object_t;
-begin
+BEGIN
   jo := json_object_t();
-  jo.put('user_ocid','ocid1.user.oc1....');
-  jo.put('tenancy_ocid','ocid1.tenancy.oc1....');
-  jo.put('compartment_ocid','ocid1.compartment.oc1....');
-  jo.put('private_key','MII....Cb3');
-  jo.put('fingerprint','a0:b1:c2');
-  dbms_output.put_line(jo.to_string);
+  jo.put('user_ocid', 'ocid1.user.oc1..aaaaaaaawkcgks5aykamgencpwt7npi5jmtonjbasavbgh75s3l2jfo5bzrq');
+  jo.put('tenancy_ocid', 'ocid1.tenancy.oc1..aaaaaaaa2nob7ly6wpz4t4v4oqfruufirexnmo3du3o5hydjvo3c2ctgmsfq');
+  jo.put('compartment_ocid', 'ocid1.compartment.oc1..aaaaaaaaosjahglkvoi42xd2mv7bidhdez7fqwttl4thiv7n4yadqy7mtciq');
+  jo.put('private_key', q'[pega_aqui_tu_llave_PEM_completa_con_sus_saltos]');
+  jo.put('fingerprint', '0d:70:d7:9d:99:df:26:ec:a6:63:d1:5e:3c:f9:c8:0b');
+  
   dbms_vector.create_credential(
-    credential_name   => 'OCI_CRED',
-    params            => json(jo.to_string));
-end;
+    credential_name => 'OCI_CRED',
+    params => json(jo.to_string)
+  );
+END;
+/
 ```
 
 Si sucede algún error con al realizar la conexión al modelo y necesitamos volver a crear la credencial, podemos ejecutar el siguiente comando. Este comando eliminará la credencial creada. Este comando debe utilizarse sólo si es necesario crear nuevamente la credencial OCI_CRED.
@@ -320,7 +325,7 @@ values  ('relatorelato-a.pdf',
          dbms_lob.getlength(to_blob(bfilename('DATA_PUMP_DIR', 'relatorelato-a.pdf'))),
          'PDF',
          to_blob(bfilename('DATA_PUMP_DIR', 'relatorelato-a.pdf') )
-        )
+        );
 ```
 
 --
@@ -351,7 +356,7 @@ INSERT into "TB_VECTOR_DATA" ( vec_id, embed_id, embed_data, embed_vector)
                      embed_vector CLOB PATH '$.embed_vector'
                  )
          ) AS et
-where dt.file_name = 'relatorelato-a.pdf'
+where dt.file_name = 'relatorelato-a.pdf';
 ```
 
 Cuando finalice el proceso de inserción, es posible realizar una búsqueda de similitudes
@@ -361,7 +366,7 @@ SELECT embed_data
 FROM TB_VECTOR_DATA,
        (SELECT VECTOR_EMBEDDING(  ALL_MINILM_L6   USING 'Qué le sucedió a la familia Gómez Ramírez' AS data) as embedding) query_vector
 ORDER BY VECTOR_DISTANCE(EMBED_VECTOR, query_vector.embedding, COSINE)
-FETCH APPROX FIRST 4 ROWS ONLY
+FETCH APPROX FIRST 4 ROWS ONLY;
 ```
 
 A partir de los resultados de la búsqueda de similitudes es posible generar una respuesta en lenguaje natural usando los servicios de IA generativa. Definiremos una función
@@ -483,5 +488,5 @@ END;
 Perfecto, si la función se creó correctamente, podemos ejecutarla
 
 ```sql
-select generate_text_response_gen('Qué le sucedió a la familia Gómez Ramírez')
+select generate_text_response_gen('Qué le sucedió a la familia Gómez Ramírez');
 ```
