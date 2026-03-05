@@ -207,27 +207,37 @@ Cline soporta varios proveedores de IA. Tienes, por ejemplo:
 * API keys propias (OpenAI, Anthropic, otros)
 * Uso de **Oracle Code Assist** con Oracle SSO
 
-Para esta demostración se utilizará la **opción gratuita**.
+Para esta demostración se utilizará la **API KEY de OCI**.
 
-1. Haz clic en **Introducción gratuita** si deseas utilizar el servicio gratuito de Cline.
+1. Genera la API KEY en OCI como se observa a continuacion.
 
-   ![Figura 17](img/figure17.png)
+<details>
+<summary>📸 Generar OCI API LEY </summary>
 
-2. Si utilizas el servicio gratuito de Cline, se te pedirá que te registres.
-   Sigue las instrucciones para crear una cuenta (esto es opcional si ya tienes tus propias claves de API).
+![Figure-APIKey.png](img/Figure-APIKey.png)
 
-3. Configura el **modelo de IA**:
+</details>
 
-   * Haz clic en el icono de engranaje para abrir la **configuración de Cline**.
-   * Haz clic en **API Settings**.
 
-   ![Figura 31](img/figure31.png)
 
-4. Selecciona tu **proveedor** y **modelo de IA** preferido.
-   Para la opción gratuita, elige uno de los modelos gratuitos disponibles de Cline.
 
-   ![Figura 5](img/figure5.png)
+2. Configura el **modelo de IA**:
 
+- API Provider -> `OpenAI Compatible`
+- Base URL -> ````https://inference.generativeai.us-chicago-1.oci.oraclecloud.com/20231130/actions/v1````
+- OpenAI Compatible API Key -> `sk-XXXXXXXXXXXXXXXXXXXXXXXXXXXXX`
+- Model ID -> `xai.grok-4-1-fast-reasoning`
+
+
+
+<details>
+<summary>📸 Configurar Cline </summary>
+
+![Figure add2cline.png](img/Figure%20add2cline.png)
+
+</details>
+
+ 
 ---
 
 ## Tarea 4: Instalación de SQLcl
@@ -320,6 +330,19 @@ El servidor MCP actúa como un **puente seguro**, permitiendo que Cline:
        }
      }
    }
+   ```
+   
+- Ejemplo de la maquina virtual con Windows 
+
+```json
+   {
+  "mcpServers": {
+    "sqlcl": {
+      "command": "/Users/opc/Downloads/sqlcl/bin/sql",
+      "args": ["-mcp"]
+    }
+  }
+}
    ```
 
    Rutas de ejemplo:
