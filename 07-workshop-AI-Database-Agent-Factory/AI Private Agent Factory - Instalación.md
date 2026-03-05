@@ -287,12 +287,10 @@ Al completar los campos y si las conexiones son exitosas, podemos continuar la i
 
 ![image.png](AI%20Private%20Agent%20Factory/image%2032.png)
 
-## Paso 7: Probemos
+## Paso 7: Navegación por la plataforma
 
-Al finalizar la instalación podemos seleccionar una template de la galería de templates. Para este ejemplo probaré el PDF to blog converter
+Al finalizar la instalación podemos observar una plataforma que se ve de la siguiente manera.
 
-![image.png](AI%20Private%20Agent%20Factory/image%2033.png)
+![dpaf home](./AI%20Private%20Agent%20Factory/dpaf%20home.png)
 
-Un flow me permitirá editar y diseñar agentes utilizando la siguiente interfaz
-
-![image.png](AI%20Private%20Agent%20Factory/image%2034.png)
+Ahora podemos construir nuestros propios flujos de inteligencia artificial.
