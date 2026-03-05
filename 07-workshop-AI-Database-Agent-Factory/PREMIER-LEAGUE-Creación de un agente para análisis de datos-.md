@@ -1,6 +1,6 @@
 # Laboratorio: Construcción de un agente a partir de datos de partidos
 
-Los datos son uno de los activos más valiosos de cualquier organización, pero acceder a ellos de forma ágil e intuitiva sigue siendo un reto para muchos equipos. 🤔 En este laboratorio vas a construir un agente de análisis de datos sobre estadísticas históricas de la **Copa Mundial de Fútbol 2022** ⚽ — un agente que entiende preguntas en lenguaje natural, las traduce automáticamente a consultas SQL y te devuelve respuestas, tablas y visualizaciones al instante, sin que tengas que escribir una sola línea de código. 🚀
+Los datos son uno de los activos más valiosos de cualquier organización, pero acceder a ellos de forma ágil e intuitiva sigue siendo un reto para muchos equipos. 🤔 En este laboratorio vas a construir un agente de análisis de datos sobre estadísticas de jugadores de la Premier League** ⚽ — un agente que entiende preguntas en lenguaje natural, las traduce automáticamente a consultas SQL y te devuelve respuestas, tablas y visualizaciones al instante, sin que tengas que escribir una sola línea de código. 🚀
 
 ---
 
@@ -8,6 +8,7 @@ Los datos son uno de los activos más valiosos de cualquier organización, pero 
 ## Paso 1: Carga de los datos en la base de datos
 
 > Carga de datos Premier League de forma automática. 
+> Ingresa a la base de datos y ejecuta el siguiente script.
 
 <details>
 <summary>📸 Creación y Cargas de datos PREMIER LEAGUE de forma automática </summary>
@@ -364,75 +365,6 @@ PROMPT === Carga finalizada ===
 
 </details>
 
-<details>
-<summary>📸 Carga de documentos de forma manual </summary>
-
-
-
-
-### Acceso a la pantalla principal
-
-En la consola web de OCI, navega hasta la pantalla principal de la base de datos.
-En esta pantalla, haz clic en el botón **Database Actions**.
-Dentro del menú de Database Actions, presiona el botón **Data Load**.
-
-![Botón Data en Database Actions](./AI%20Private%20Agent%20Factory/dpaf_image3.png)
-
-
-Se abrirá un panel con el botón **Load Data**. Haz clic en él para continuar.
-
-![Botón Load Data](./AI%20Private%20Agent%20Factory/dpaf_image4.png)
-
-Verás un panel de carga donde puedes **arrastrar y soltar** tus archivos CSV, o hacer clic en **Select Files** para buscarlos manualmente.
-
-
-Descarga los archivos CSV desde los siguientes enlaces:
-
-- [Link 1]()
-- [Link 2]()
-- [Link 3]()
-
-![Panel de arrastrar y soltar archivos](./AI%20Private%20Agent%20Factory/dpaf_image6.png)
-
-> **Nota:** Los archivos CSV pueden estar separados por `,` (coma) o por `;` (punto y coma). La plataforma intentará detectarlo automáticamente — verifica este ajuste en el siguiente paso.
-
-### Revisión de la configuración del dataset
-
-Una vez cargado el archivo, aparecerá un bloque con el nombre del CSV. Este nombre corresponderá al nombre de la tabla que se creará en la base de datos. Verás una advertencia que dice **Review Settings**.
-
-![Bloque de detección del dataset](./AI%20Private%20Agent%20Factory/dpaf_image7.png)
-
-Haz clic en **Review Settings** y verifica lo siguiente:
-
-- ✅ Los datos se cargaron correctamente
-- ✅ Los tipos de datos de cada columna se detectaron de forma correcta
-- ✅ El separador del CSV fue identificado correctamente (`,`,`;`, etc...)
-
-Corrige cualquier ajuste que sea necesario antes de continuar. Una vez que todo esté en orden, la advertencia **Review Settings** desaparecerá del bloque.
-
-### Ejecución de la carga
-
-Con la configuración validada, haz clic en el botón **Start** para iniciar la transferencia de datos a la base de datos.
-
-![Botón Start](./AI%20Private%20Agent%20Factory/dpaf_image9.png)
-
-### Verificación de la carga exitosa
-
-Al finalizar, el bloque mostrará el nombre del CSV junto con el **número de columnas y filas** que se cargaron correctamente. Confirma que estos valores coincidan con los de tu archivo original.
-
-![Resumen de carga exitosa](./AI%20Private%20Agent%20Factory/dpaf_image10.png)
-
-### Cierre del panel de carga
-
-Una vez verificada la carga, haz clic en el botón **Close** para finalizar el proceso.
-
-![Botón Close](./AI%20Private%20Agent%20Factory/dpaf_image8.png)
-
-Con esto concluye la carga de los datos en la base de datos, que servirán para alimentar el agente que construiremos en la plataforma **Database Private Agent Factory (DPAF)**.
-
----
-
-</details>
 
 
 ## Paso 2: Creación de un agente para análisis de datos
@@ -461,7 +393,6 @@ Vuelve al menú de navegación izquierdo y haz clic en **Data Analysis Agents**.
 
 ![Panel de Data Analysis Agents](./AI%20Private%20Agent%20Factory/dpaf_image13.png)
 
-![Botón Create Agent](./AI%20Private%20Agent%20Factory/dpaf_image14.png)
 
 ### Selección de la base de datos
 
@@ -469,31 +400,76 @@ En el formulario de creación del agente, selecciona la base de datos que acabas
 
 ### Selección de tablas
 
-Utiliza la barra de búsqueda para encontrar y seleccionar las tablas que el agente utilizará. El nombre de cada tabla corresponde al nombre del archivo CSV cargado en el Paso 1 (sin la extensión `.csv`).
+Utiliza la barra de búsqueda para encontrar y seleccionar las tablas que el agente utilizará. El nombre de cada tabla corresponde al nombre del archivo CSV o tabla cargado en el Paso 1.
 
-![Barra de búsqueda de tablas](./AI%20Private%20Agent%20Factory/dpaf_image15.png)
+Escribe en el buscador la palabra ``player`` y selecciona la tabla `ADMIN.PLAYER_STATS`
 
-![Resultado de búsqueda — tabla "datos"](./AI%20Private%20Agent%20Factory/dpaf_image16.png)
+#### Datos para el agente.
 
-> **Ejemplo:** si el archivo se llamaba `datos.csv`, la tabla se llamará `datos`.
+- Agente name: 
 
-Una vez seleccionadas todas las tablas necesarias, haz clic en el botón **Add New Source** para confirmar la selección y avanzar al siguiente paso.
+```text
+Agente de análisis de rendimiento ofensivo de jugadores (xG)
+```
+- Description:
+```text
+Este agente analiza la tabla `player_stats` para responder consultas de rendimiento ofensivo por jugador y equipo, usando xG, goles, cantidad de tiros y eficiencia por disparo para comparar, rankear y detectar sobre/infra rendimiento.
+```
+- Help description:
 
-![Botón Add New Source](./AI%20Private%20Agent%20Factory/dpaf_image17.png)
+```text
+La tabla contiene estadísticas agregadas por jugador y equipo con las columnas:
+- `PLAYER_ID`: identificador único del jugador.
+- `PLAYER_NAME`: nombre del jugador.
+- `TEAM_NAME`: nombre del equipo.
+- `TOTAL_XG`: goles esperados acumulados.
+- `GOALS`: goles anotados.
+- `SHOT_COUNT`: total de remates.
+- `XG_PER_SHOT`: calidad promedio de remate (`TOTAL_XG / SHOT_COUNT`).
 
-### Revisión de la configuración del agente
+### Reglas de respuesta
+1. Responde con datos concretos y verificables de la tabla, 
+1.1. siempre responde en ingles.
+2. Si piden “mejores” o “top”, aclara el criterio usado (ej. más goles, más xG, mayor xG por tiro).
+3. Para comparativas, muestra al menos:
+   - valor de cada jugador,
+   - diferencia absoluta,
+   - y, si aplica, porcentaje.
+4. Cuando sea útil, incluye métricas derivadas:
+   - **Diferencia goles vs xG** = `GOALS - TOTAL_XG`.
+   - **Conversión aproximada** = `GOALS / SHOT_COUNT`.
+5. Si hay empates en ranking, desempata por `SHOT_COUNT` y luego por `PLAYER_NAME`.
+6. Si el usuario no especifica filtros (equipo, top N, umbral de tiros), asume consulta global y acláralo.
 
-Revisa el resumen de configuración del agente. Verifica que la base de datos y las tablas seleccionadas sean correctas. Si todo está en orden, haz clic en **Next** para continuar.
+### Buenas prácticas analíticas
+- Evita conclusiones causales fuertes; presenta hallazgos descriptivos.
+- Interpreta `XG_PER_SHOT` con cuidado en muestras pequeñas.
+- Señala posibles limitaciones de calidad de texto (nombres con codificación especial).
 
-![Resumen de configuración del agente](./AI%20Private%20Agent%20Factory/dpaf_image18.png)
+### Formato de salida recomendado
+- **Resumen breve** (1–2 líneas).
+- **Tabla o lista ordenada** con métricas clave.
+- **Insight final** con interpretación accionable.
 
-![Botón Next](./AI%20Private%20Agent%20Factory/dpaf_image20.png)
+### Ejemplos de consultas que debe resolver
+- “Top 10 jugadores por goles.”
+- “¿Quiénes sobre-rinden más respecto a su xG?”
+- “Compara a dos jugadores por xG, goles y eficiencia.”
+- “Top por xG por disparo con mínimo 20 tiros.”
+- “Promedio de xG por equipo (agregado desde jugadores).”
+```
 
-### Publicación del agente
 
-Si la configuración está completa y validada, presiona el botón **Publish Agent** para publicar el agente y dejarlo disponible para su uso.
 
-![Botón Publish Agent](./AI%20Private%20Agent%20Factory/dpaf_image19.png)
+<details>
+
+<summary>📸📸 Paso a paso crear el agente 📸📸 </summary>
+
+
+![Configuracion-agente-visualizacion.png](AI%20Private%20Agent%20Factory/Configuracion-agente-visualizacion.png)
+
+</details>
+
 
 ### Acceso al agente publicado
 

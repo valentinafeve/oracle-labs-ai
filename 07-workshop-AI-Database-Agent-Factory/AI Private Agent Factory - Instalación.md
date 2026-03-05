@@ -190,6 +190,23 @@ Para confirmar la creación seleccionamos Add Ingress Rules
 
 ## Paso 6: Despliegue del marketplace
 
+
+[Link Marketplace](https://marketplace.oracle.com/listings/201588705 "Link Marketplace")
+
+> Para la instalacion es requerida una llave publica, si no lo tienes puedes generarla asi:
+
+<details>
+<summary>📸 Generacion de Llaves privadas/publicas </summary>
+
+Abre una ventana de Powershell en la carpeta donde se desee generar las llaves, luego ejecuta el siguiente comando:
+```powershell
+ssh-keygen -t rsa -b 4096 -f .\oraclelabs
+```
+
+
+
+</details>
+
 Ahora vamos a navegar hasta el marketplace, en la consola de Oracle podemos navegar a
 
 <aside>
@@ -231,6 +248,8 @@ Agent Factory server shape: VM.Standard.E5.Flex
 Agent Factory OCPUs (Flex only): 16
 Agent Factory Memory (GB) (Flex only): 128
 ```
+
+- Agrega la llave `Publica` 
 
 Este step toma 3 o 4 minutos.
 
