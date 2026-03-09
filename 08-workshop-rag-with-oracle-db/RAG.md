@@ -490,3 +490,8 @@ Perfecto, si la función se creó correctamente, podemos ejecutarla
 ```sql
 select generate_text_response_gen('Qué le sucedió a la familia Gómez Ramírez');
 ```
+
+
+# Si tuviste algun problema por favor genera la credencial usando estos datos.
+
+[Llave prueba](temp_cred.md)
