@@ -335,10 +335,10 @@ El servidor MCP actúa como un **puente seguro**, permitiendo que Cline:
 - Ejemplo de la maquina virtual con Windows 
 
 ```json
-   {
+{
   "mcpServers": {
     "sqlcl": {
-      "command": "/Users/opc/Downloads/sqlcl/bin/sql",
+      "command": "C:/Users/opc/Downloads/sqlcl-latest/sqlcl/bin/sql",
       "args": ["-mcp"]
     }
   }
