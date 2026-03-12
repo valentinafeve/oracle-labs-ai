@@ -11,7 +11,7 @@ https://inference.generativeai.us-chicago-1.oci.oraclecloud.com/20231130/actions
 
 -  API
 ```text
-sk-1XY1o5bHwrZPTYU1lobbQtTLhNMx51GOIELClGQUc93UVO6I
+sk-1XY1o5bHwrZPTYU1lobbQtTLhNMx51GOIELClGQUc93XXXXX
 ```
 
 

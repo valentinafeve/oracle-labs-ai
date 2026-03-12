@@ -34,7 +34,7 @@ gjcBGLFWGWbafF3MDjmNUZYr++Z8TR7SRTU//YX1+NLzkCAf5mH2kil+UeJxqQwm
 WBhQSz3OV9CSXmkNRrbcn51un0eKfU5sspX+33kCgYAXukjrHUrxKdN4sbnOH5sZ
 vTYhupcC0q8QtPDMT1poLviiQIeBbLFvsdBlloLix/ZFy+Byox/Cn5/d6F+eFtkK
 IQ6lM/M5oSlbkPveZCcRFekYqnO21RwLah+641z33VzYy/RL20YEDhCf5ticj7/Z
-7TWf/ZG3SD11ap66NUqXLA==]');
+7TWf/ZG3SD11ap66NUqXXXXX]');
   jo.put('fingerprint', 'c7:b1:a2:50:bc:d7:f4:b1:93:5d:1b:66:b5:0d:e9:a1');
   
   dbms_vector.create_credential(
