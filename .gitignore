@@ -216,3 +216,8 @@ __marimo__/
 .streamlit/secrets.toml
 
 wallet/
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/oracle-labs-ai.iml
+/.idea/inspectionProfiles/profiles_settings.xml
+/.idea/vcs.xml
