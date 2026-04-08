@@ -264,13 +264,16 @@ CREATE TABLE EVENT_RAW
   MATCH_DATE_TXT                VARCHAR2(30 BYTE)
 );
 
-PROMPT === Cargando datos con DBMS_CLOUD.COPY_DATA ===
+PROMPT === Cargando datos con DBMS_CLOUD.COPY_DATA desde GitHub ===
+
+-- Los CSV se consumen directamente desde el repositorio publico.
+-- Si cambias de rama o de organizacion, actualiza las URLs RAW.
 
 BEGIN
   DBMS_CLOUD.COPY_DATA(
     credential_name => NULL,
     table_name      => 'EVENT_RAW',
-    file_uri_list   => 'https://objectstorage.us-chicago-1.oraclecloud.com/p/JdLwvG46w3Kjs8e0gieB6mKUZdZhGOo6KcNTZGTThF-0JAzRc7eOqGl4510aPgOO/n/idajmumkp9ca/b/labs-git/o/event.csv',
+    file_uri_list   => 'https://raw.githubusercontent.com/valentinafeve/oracle-labs-ai/main/07-workshop-AI-Database-Agent-Factory/data-premier/event.csv',
     format          => '{"type":"csv","skipheaders":1,"delimiter":",","quote":"\"","characterset":"WE8MSWIN1252","blankasnull":true}'
   );
 
@@ -324,28 +327,28 @@ BEGIN
   DBMS_CLOUD.COPY_DATA(
     credential_name => NULL,
     table_name      => 'MATCH',
-    file_uri_list   => 'https://objectstorage.us-chicago-1.oraclecloud.com/p/bwcwEtC52h5gfON0nYqVOhDqPrH3hZT8Ck58bPmCKECLKHRrM5xY4265r1EOaz20/n/idajmumkp9ca/b/labs-git/o/match.csv',
+    file_uri_list   => 'https://raw.githubusercontent.com/valentinafeve/oracle-labs-ai/main/07-workshop-AI-Database-Agent-Factory/data-premier/match.csv',
     format          => '{"type":"csv","skipheaders":1,"delimiter":",","quote":"\"","characterset":"WE8MSWIN1252","dateformat":"DD-MON-RR","blankasnull":true}'
   );
 
   DBMS_CLOUD.COPY_DATA(
     credential_name => NULL,
     table_name      => 'PLAYER_STATS',
-    file_uri_list   => 'https://objectstorage.us-chicago-1.oraclecloud.com/p/GSZXJEJkuXJjqhlHXxnm04kWX4OlnISgWVqtrVxxKLVm8pD36XO2oUj6h7unKLtw/n/idajmumkp9ca/b/labs-git/o/player_stats.csv',
+    file_uri_list   => 'https://raw.githubusercontent.com/valentinafeve/oracle-labs-ai/main/07-workshop-AI-Database-Agent-Factory/data-premier/player_stats.csv',
     format          => '{"type":"csv","skipheaders":1,"delimiter":",","quote":"\"","characterset":"WE8MSWIN1252","blankasnull":true}'
   );
 
   DBMS_CLOUD.COPY_DATA(
     credential_name => NULL,
     table_name      => 'PREDICT_BY_ANGLE',
-    file_uri_list   => 'https://objectstorage.us-chicago-1.oraclecloud.com/p/HIHoQBesfjAFk2Ekrq279NoBnrMozXvkTFxjtLXyVJlNx1zXapjX93X4t0y-REL-/n/idajmumkp9ca/b/labs-git/o/predict_by_angle.csv',
+    file_uri_list   => 'https://raw.githubusercontent.com/valentinafeve/oracle-labs-ai/main/07-workshop-AI-Database-Agent-Factory/data-premier/predict_by_angle.csv',
     format          => '{"type":"csv","skipheaders":1,"delimiter":",","quote":"\"","characterset":"WE8MSWIN1252","blankasnull":true}'
   );
 
   DBMS_CLOUD.COPY_DATA(
     credential_name => NULL,
     table_name      => 'XG_MATRIX',
-    file_uri_list   => 'https://objectstorage.us-chicago-1.oraclecloud.com/p/nBNu_bNLWfWpha7W92NQnqo7AIcMuatbtiIbGfJe9i5sytXEXC9mq4xbpDFaHO2Q/n/idajmumkp9ca/b/labs-git/o/xg_matrix.csv',
+    file_uri_list   => 'https://raw.githubusercontent.com/valentinafeve/oracle-labs-ai/main/07-workshop-AI-Database-Agent-Factory/data-premier/xg_matrix.csv',
     format          => '{"type":"csv","skipheaders":1,"delimiter":",","quote":"\"","characterset":"WE8MSWIN1252","blankasnull":true}'
   );
 END;
