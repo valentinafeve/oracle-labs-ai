@@ -68,8 +68,8 @@ Vamos a darle click en el boton de la derecha superior de `Create Catalog`
 ### Carga de datos en el esquema bronze
 Vamos a realizar la carga de 3 tablas en diferentes esquemas.
 - **customer** en catalogo `bronze` esquema `crm` de manera local
-- **customer_review** en catalogo `bronze` esquema `crm` de manera externa al ir y buscar el archivo en un bucket.
-- **labelled_customer** en catalogo `bronze` esquema `historical` de manera local
+- **customer_reviews** en catalogo `bronze` esquema `crm` de manera externa al ir y buscar el archivo en un bucket.
+- **labelled_customers** en catalogo `bronze` esquema `historical` de manera local
 
 El archivo `customer_reviews` lo vamos a cargar en un `bucket` o espacio fisico del datalake, esto para probar que podemos cargar archivos tanto de manera local como de archivos que pueden conformar tablas a partir de datos que se encuentran en el `datalake`.
 Nos vamos a ir a la opcion del menu de hamburguesa `Storage` y en `Buckets` hacemos click.<br>
@@ -88,7 +88,7 @@ Luego de cargar el archivo en el bucket con el siguiente video se muestra como c
 
 [![AIDP Arquitectura Medallon](img/black.png)](https://idi1o0a010nx.objectstorage.us-chicago-1.oci.customer-oci.com/n/idi1o0a010nx/b/archivos_publicos/o/Task-I.mp4)
 
-Luego realice el mismo proceso para cargar el catalogo `historical` la tabla de `labelled_customer` con el archivo labelled_customer.csv similar a como cargo la tabla `customer` en el paso anterior, mediante una carga local.<br>
+Luego realice el mismo proceso para cargar en el catalogo `bronze`, esquema `historical`, la tabla `labelled_customers` usando el archivo `labelled_customers.csv` y asegurese de que el nombre exacto de la tabla creada sea `labelled_customers`.<br>
 
 Es importante analizar que podemos cargar diferentes tipos de formatos de archivos como por ejemplo .AVRO o .PARQUET si desea hacer una prueba dejamos otra otros archivos que puede cargar de formato parquet.
 
@@ -184,8 +184,8 @@ Luego de escribir los datos en el Catalogo silver vamos a verificar el nuevo esq
 
 ### 📋 Notebook 02
 
-La tarea del notebook_02 es integrar los datos de  `customers` y `customers_reviews` para integrarlos en el esquema silver.
-Vamos a abrir el notebook `02_IntegrateAndCleanseCustomer.ipynb`<p>
+La tarea del notebook_02 es integrar los datos de `customers` y `customer_reviews` para integrarlos en el esquema silver.
+Vamos a abrir el notebook `02_IntegrateAndCleanseCustomerData.ipynb`<p>
 
 ![AIDP Arquitectura Medallon](img/Picture26.png)<p>
 
@@ -202,7 +202,7 @@ En la siguiente celda vamos a leer los datos customer de la capa bronze en el es
 
 ![AIDP Arquitectura Medallon](img/Picture29.png)<p>
 
-Despues de leer la tabla **"customer"** vamos a leer la tabla **"customer_reviews"** en la capa bronze del esquema `crm`
+Despues de leer la tabla **"customers"** vamos a leer la tabla **"customer_reviews"** en la capa bronze del esquema `crm`
 
 ![AIDP Arquitectura Medallon](img/Picture30.png)<p>
 
@@ -258,7 +258,7 @@ Iniciamos importando las librerias requeridas para ejecutar el notebook y entren
 
 ![AIDP Arquitectura Medallon](img/Picture41.png)<p>
 
-Vamos a leer la tabla historica `customer.profiles` de la capa silver y vamos a borrar el year y review para ejecutar el codigo.<br>
+Vamos a leer la tabla historica `silver.historical.customers` de la capa silver y vamos a borrar las columnas `year` y `sentimentScore_str` para ejecutar el codigo.<br>
 
 ![AIDP Arquitectura Medallon](img/Picture42.png)<p>
 
@@ -282,7 +282,7 @@ Ahora evaluemos el modelo con la extraccion de las predicciones **positivas**  y
 
 ![AIDP Arquitectura Medallon](img/Picture47.png)<p>
 
-Como ultimo paso vamos a guardar el modelo en el espacio `/workspace/CUSTOMER_ANALYTICS/model/customer_churn/ml_model`.<br>
+Como ultimo paso vamos a guardar el modelo en la ruta `/Workspace/model/customer_churn/ml_model`, que es la misma ruta que utilizara el notebook 04 para cargarlo posteriormente.<br>
 
 ![AIDP Arquitectura Medallon](img/Picture48.png)<p>
 
@@ -292,58 +292,102 @@ AIDP va a crear una nueva area de trabajo donde guardara los modelos de acuerdo 
 
 ### 📝 Setup en Autonomous Datawarehouse como capa Gold
 
-Los datos finales podriamos tener la versatilidad de guardarlos como una tabla externa en el **"Lake"** y accesarla o guardarlos en nuetra capa de **"warehouse ADW"**.<br>
-Vamos a crear un `usuario` y una `tabla` donde almacenaremos en el ultimo notebook los resultados.
+En esta parte del laboratorio vamos a guardar el resultado final del modelo en una tabla de Oracle Autonomous Data Warehouse (ADW). El notebook 04 insertara las predicciones en la tabla `DATALAB.CHURN_PREDICTIONS` a traves del catalogo externo `external_gold_adw`.
+
+#### Antes de empezar
+
+Antes de continuar, valida que ya tienes lo siguiente:
+
+- Una instancia de ADW disponible desde los prerequisitos.
+- Acceso para descargar el wallet de ADW. Si aun no lo has descargado, en los pasos siguientes se muestra como hacerlo.
+- El notebook 03 ejecutado correctamente y el modelo guardado en `/Workspace/model/customer_churn/ml_model`.
 
 Vamos a ir a la opción de Oracle AI Database<br>
 
 ![AIDP Arquitectura Medallon](img/Picture50.png)<p>
 ![AIDP Arquitectura Medallon](img/Picture50-1.png)<p>
 
-Vamos a abrir la base de datos (que se creo en los prerequisitos) y en la opción de Database Actions abriremos el SQL<br>
+Vamos a abrir la base de datos y en la opción de Database Actions abriremos SQL Developer Web.<br>
 
 ![AIDP Arquitectura Medallon](img/Picture51.png)<p>
 
-En el SQL DEVELOPER WEB vamos a ejecutar el siguiente codigo que se encuentra en los archivos `usuario.sql` y `crear_tabla.sql`
+#### Ejecutar los scripts SQL previos
 
-Solo debes copiar y pegar el codigo y ejecutarlo. Tambien podrias arrastrar el archivo .sql a la interfaz para ejecutarlo.
-- Primero vas a abrir el codigo de `usuario.sql` lo marcas completo y ejecutas el codigo completo.
-- Luego vas a abrir el codigo de `crear_tabla.sql` lo marcas completo y ejecutos el codigo de creacion de tabla.<br>
+En SQL Developer Web vamos a ejecutar los archivos `usuario.sql` y `crear_tabla.sql`.
+
+Estos scripts hacen lo siguiente:
+
+- `usuario.sql`: crea el usuario `DATALAB` con contraseña `Oracle1234##`, asigna roles como `DWROLE` y habilita el esquema para las capacidades que el laboratorio necesita.
+- `crear_tabla.sql`: crea la tabla `DATALAB.CHURN_PREDICTIONS`, que sera la tabla donde el notebook 04 insertara las predicciones finales.
+
+Ejecuta los scripts en este orden:
+
+1. Abre `usuario.sql`, selecciona todo el contenido y ejecutalo completo.
+2. Abre `crear_tabla.sql`, selecciona todo el contenido y ejecutalo completo.
 
 ![AIDP Arquitectura Medallon](img/runsql1.png)<p>
 ![AIDP Arquitectura Medallon](img/runsql2.png)<p>
 
 #### Agregar el catálogo de ADW como uno nuevo en el Master Catalog
 
-Vamos a crear un nuevo catalogo `Create Catalog`<br>
+Vamos a crear un nuevo catalogo con `Create Catalog`.<br>
 
 ![AIDP Arquitectura Medallon](img/Picture52.png)<p>
 
-- Vamos a indicar el `nombre del catalogo`, indicar una descripción y seleccionar `external catalog`.<br>
-- Indicamos que la fuente es un `Oracle Autonomous Data Warehouse`<br>
-- Anexamos el `wallet` de la base de datos el cual se descarga en el ADW en la opción 
+Configura el catalogo con estos valores:
+
+- `Catalog name`: `external_gold_adw`
+- `Description`: opcional. Ejemplo: `Catalogo externo de ADW para predicciones de churn`
+- `Catalog type`: `external catalog`
+- `Source`: `Oracle Autonomous Data Warehouse`
+
+Este catalogo debe permitir acceder al esquema `DATALAB` y a la tabla `CHURN_PREDICTIONS` creados en los pasos anteriores.
+
+Ahora anexa el `wallet` de la base de datos, el cual se descarga desde ADW en la opción `download wallet`.<br>
 
 ![AIDP Arquitectura Medallon](img/Picture53.png)<br>
 
-- Debes dar click en la opción `download wallet` y darle un password a la descarga del archivo. Puedes usar la misma clave del usuario que creamos para la base de datos.
-`Clave=Oracle1234##`<br>
+Al descargar el wallet, define una contraseña para proteger el archivo. En este laboratorio puedes usar la misma clave de ejemplo:
+
+`Oracle1234##`<br>
 
 ![AIDP Arquitectura Medallon](img/Picture54.png)<br>
 
-Luego de agregar el wallet en la pantalla de External Catalog podras seleccionar `Service`y se recomienda usar `médium` en el nombre del servicio de los existentes en la lista de servicios.<br>
+En la pantalla de External Catalog completa tambien estos campos:
+
+- `Service`: se recomienda usar `pl_medium` o el servicio `medium` equivalente disponible en tu wallet.
+- `Username`: `DATALAB`
+- `Password`: `Oracle1234##`
+- `Wallet password (optional)`: la contraseña con la que descargaste el wallet. Si usaste la misma clave del laboratorio, vuelve a ingresar `Oracle1234##`.
+
+Importante:
+
+- `Password` es la contraseña del usuario de base de datos `DATALAB`.
+- `Wallet password` es la contraseña del archivo wallet descargado desde ADW.
+- Aunque pueden coincidir, conceptualmente son credenciales distintas.
 
 ![AIDP Arquitectura Medallon](img/Picture55.png)<p>
 ![AIDP Arquitectura Medallon](img/Picture55B.png)<p>
 
-En el boton **Test Conection** puedes probar la conexion a la base de datos y si funciona das **click** en el boton `Create`
-Posterior a este paso vamos a poder visualizar el catalogo en el `Master Catalog` como se refleja en la siguiente imagen.<br>
+En el botón **Test Connection** valida la conexión. Si la prueba es exitosa, da click en `Create`.
+
+Posterior a este paso podras visualizar el catalogo `external_gold_adw` en el `Master Catalog`.<br>
 
 ![AIDP Arquitectura Medallon](img/Picture56.png)<p>
 
+#### Verificaciones antes del notebook 04
+
+Antes de ejecutar la inserción final, valida lo siguiente:
+
+- El catalogo `external_gold_adw` fue creado usando el usuario `DATALAB`.
+- `Test Connection` fue exitoso.
+- El esquema `datalab` y la tabla `churn_predictions` son visibles desde el catalogo.
+- El notebook 03 guardo y verifico correctamente el modelo en `/Workspace/model/customer_churn/ml_model`.
+
 ### 📋 Notebook 04
 
-La tarea de este ultimo notebook es hacer predicciones con el modelo entrenado y guardarlas en una tabla dentro del datawarehouse ADW.
-Vamos a abrir el ultimo notebook **04_PredictCustomerChurn.ipynb**<p>
+La tarea de este ultimo notebook es hacer predicciones con el modelo entrenado y guardarlas en una tabla dentro de ADW.
+Vamos a abrir el notebook **04_PredictCustomerChurn.ipynb**<p>
 
 ![AIDP Arquitectura Medallon](img/Picture58.png)<p>
 
@@ -357,31 +401,30 @@ Vamos a importar las librerias necesarias para ejecutar el notebook.<br>
 
 ![AIDP Arquitectura Medallon](img/Picture59.png)<p>
 
-Ahora vamos a tomar los datos del esquema silver de la tabla customer y lo cargamos como un dataframe.<br>
+Ahora vamos a tomar los datos del esquema silver de la tabla `silver.crm.customers` y los cargamos como un dataframe.<br>
 
 ![AIDP Arquitectura Medallon](img/Picture60.png)<p>
 
-Vamos a borrar la columna `review`<br>
+Vamos a borrar la columna `review`.<br>
 
 ![AIDP Arquitectura Medallon](img/Picture61.png)<p>
 
-Hacemos la carga del modelo entrenado para utilizarlo.<br>
+Hacemos la carga del modelo entrenado para utilizarlo. Antes de ejecutar esta celda, asegurese de haber completado el notebook 03 y de haber guardado correctamente el modelo en la ruta `/Workspace/model/customer_churn/ml_model`.<br>
 
 ![AIDP Arquitectura Medallon](img/Picture62.png)<p>
 
-Ahora que el modelo ya esta cargado en memoria lo utilizamos para hacer las predicciones de `churn` (salida) como se muestra a continuacion.<br>
+Ahora que el modelo ya esta cargado en memoria lo utilizamos para hacer las predicciones de `churn`.<br>
 
 ![AIDP Arquitectura Medallon](img/Picture63.png)<p>
 
-Ejecutar la siguiente celda para ver los resultados de la **prediccion**.<br>
+Ejecuta la siguiente celda para ver los resultados de la predicción.<br>
 
 ![AIDP Arquitectura Medallon](img/Picture64.png)<p>
 
-Vamos a unicamente hacer un subset de las columnas que vamos a guardar en `ADW`.<br>
+Luego hacemos un subset de las columnas que vamos a guardar en ADW.<br>
 
 ![AIDP Arquitectura Medallon](img/Picture65.png)<p>
 
-Y con la ultima instruccion haremos un **"insert"** de los datos en la tabla del `ADW`.<br>
+Finalmente ejecutamos la instrucción que inserta los datos en `external_gold_adw.datalab.churn_predictions`.<br>
 
 ![AIDP Arquitectura Medallon](img/Picture66-2.png)<p>
-
