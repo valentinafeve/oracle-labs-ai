@@ -17,9 +17,9 @@ En esta guía vamos a desplegar, con **OCI Resource Manager**, los servicios bas
 Repositorio (vista):  
 `https://github.com/valentinafeve/oracle-labs-ai/blob/main/utils/oci-foundation-stack-rm.zip`
 
-URL recomendada para despliegue automático (descarga directa):
+URL principal para despliegue automático (la que funciona de forma estable):
 
-`https://raw.githubusercontent.com/valentinafeve/oracle-labs-ai/main/utils/oci-foundation-stack-rm.zip`
+`https://github.com/valentinafeve/oracle-labs-ai/raw/refs/heads/main/utils/oci-foundation-stack-rm.zip`
 
 ## Paso 1. Política previa e identificación de usuario
 
@@ -48,15 +48,10 @@ Luego ubica el `OCID` del usuario que ejecutará el despliegue (se usa en variab
 
 Puedes usar el botón para ir directo al menú de creación del stack en Resource Manager:
 
-[![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https%3A%2F%2Fraw.githubusercontent.com%2Fvalentinafeve%2Foracle-labs-ai%2Fmain%2Futils%2Foci-foundation-stack-rm.zip)
-
-Si llegas a ver `InvalidParameter(400)`, prueba con URL de GitHub directa alternativa:
-
-`https://github.com/valentinafeve/oracle-labs-ai/raw/refs/heads/main/utils/oci-foundation-stack-rm.zip`
-
-Botón alterno:
-
 [![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https%3A%2F%2Fgithub.com%2Fvalentinafeve%2Foracle-labs-ai%2Fraw%2Frefs%2Fheads%2Fmain%2Futils%2Foci-foundation-stack-rm.zip)
+
+Nota:
+- Si usas URL tipo `blob` o una URL no directa al `.zip`, puede aparecer `InvalidParameter(400)`.
 
 ## Paso 3. Variables mínimas en Resource Manager
 
