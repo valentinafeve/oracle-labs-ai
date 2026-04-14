@@ -54,15 +54,10 @@ END;
 /
 
 DECLARE
-  jo json_object_t;
-BEGIN
-  jo := json_object_t();
-  jo.put('user_ocid', 'ocid1.user.oc1..aaaaaaaawkcgks5aykamgencpwt7npi5jmtonjbasavbgh75s3l2jfo5bzrq');
-  jo.put('tenancy_ocid', 'ocid1.tenancy.oc1..aaaaaaaa2nob7ly6wpz4t4v4oqfruufirexnmo3du3o5hydjvo3c2ctgmsfq');
-  jo.put('compartment_ocid', 'ocid1.compartment.oc1..aaaaaaaaosjahglkvoi42xd2mv7bidhdez7fqwttl4thiv7n4yadqy7mtciq');
-  jo.put('private_key', q'[
------BEGIN PRIVATE KEY-----
-MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC2CfeOfNtUSe2U
+  l_user_ocid        VARCHAR2(2000) := 'ocid1.user.oc1..aaaaaaaawkcgks5aykamgencpwt7npi5jmtonjbasavbgh75s3l2jfo5bzrq';
+  l_tenancy_ocid     VARCHAR2(2000) := 'ocid1.tenancy.oc1..aaaaaaaa2nob7ly6wpz4t4v4oqfruufirexnmo3du3o5hydjvo3c2ctgmsfq';
+  l_fingerprint      VARCHAR2(200)  := 'c7:b1:a2:50:bc:d7:f4:b1:93:5d:1b:66:b5:0d:e9:a1';
+  l_private_key      CLOB := q'[MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC2CfeOfNtUSe2U
 TKQIavQ8dOLhB/MKMqPBITVtHQXr6lsYRLSUDRrQWQcO33oGj/AvXJb2lGCqVsjy
 vrAAMLt73ujYy3/e/VwhZz2EzN2UC/qPojQ0GX7WJPQ/LODPKagEHq7sVCZjeRgv
 L2HWpFCTN+aK8ud04urJ10pCMN1mtnMyXU0IjbERXbZNb/S39ijWrVfKPPtHAQH7
@@ -87,17 +82,18 @@ o/ww9LYpvX5Nlo/wvqE8zqFYBXNeNSawpsjSZK2SBCO3aF1/8c8LHEXcmmsd8kT/
 t5u5EPOwws/QFN1+qbprRYe3qHmLpDWoYTKWhn8CgYEAzN31qpu5xPeaFOe3g0vT
 rMico+sCHfzUpw1MGaa4XJRMmg+cqijyUGm+ab9+b4G+1L+C7ukvcFxVP1ESXPCE
 AU+wta1xpUM1EcXeuwL6mRyIYP3TDZL3qfE/UWszRRkqV1ed9eHun8xxkGDPb916
-t451mRsOkDVeLs1Ouq6CRys=
------END PRIVATE KEY-----
-]');
-  jo.put('fingerprint', 'c7:b1:a2:50:bc:d7:f4:b1:93:5d:1b:66:b5:0d:e9:a1');
-
-  DBMS_VECTOR.CREATE_CREDENTIAL(
+t451mRsOkDVeLs1Ouq6CRys=]';
+BEGIN
+  DBMS_CLOUD.CREATE_CREDENTIAL(
     credential_name => 'OCI_CRED',
-    params => JSON(jo.to_string)
+    user_ocid       => l_user_ocid,
+    tenancy_ocid    => l_tenancy_ocid,
+    private_key     => l_private_key,
+    fingerprint     => l_fingerprint
   );
 END;
 /
+
 ```
 
 Cuando termine este paso, la base ya tendrá una credencial para usar recursos del ambiente de Chicago.
