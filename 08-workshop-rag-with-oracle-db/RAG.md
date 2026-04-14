@@ -24,7 +24,7 @@ Estos datos nos servirán para la configuración en la app.
 
 
 
-## Paso 2: Creación de un compartment.
+## Paso 2: Creación de un compartment. *(si `1-README-SETUP-AUTOMATICO.md` funcionó correctamente, omitir este paso)*
 
 Es necesario crear un compartment para gestionar nuestros recursos y accesos de forma ordenada. Para esto vamos a la sección de compartments
 
@@ -47,7 +47,7 @@ Description: Testing AI in Oracle
 
 ![image.png](images/image%201.png)
 
-### 2.1 Compartment ID
+### 2.1 Compartment ID *(si `1-README-SETUP-AUTOMATICO.md` funcionó correctamente, omitir este paso)*
 
 > Para varios laboratorios vamos a requerir él ``Compartment ID`` este se puede obtener como se observa a continuación. 👇
 
@@ -64,7 +64,7 @@ Description: Testing AI in Oracle
 
 4. Copialo en un blog de notas.
 
-## Paso 3: Creación de una política
+## Paso 3: Creación de una política *(si `1-README-SETUP-AUTOMATICO.md` funcionó correctamente, omitir este paso)*
 
 El paso siguiente es crear una política
 
@@ -94,7 +94,7 @@ Para finalizar hacemos clic en Create
 
 ![image.png](images/image%203.png)
 
-## Paso 4: Creación de una base de datos
+## Paso 4: Creación de una base de datos *(si `1-README-SETUP-AUTOMATICO.md` funcionó correctamente, omitir este paso)*
 
 <aside>
 💡
@@ -121,7 +121,7 @@ Los demás campos pueden quedar por defecto, una vez seleccionada la contraseña
 
 ![Screenshot 2026-01-19 at 12.11.56 PM.png](images/image%2035.png)
 
-### Paso 4.1: Ingreso a la consola SQL
+### Paso 4.1: Ingreso a la consola SQL 
 
 Cuando la base de datos esté en estado available podemos acceder a esta y ejecutar comandos SQL
 

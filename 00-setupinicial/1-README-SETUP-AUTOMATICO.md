@@ -85,3 +85,20 @@ Valores recomendados para laboratorio:
 ## Nota importante
 
 Si luego no puedes destruir el stack, normalmente es porque AIDP crea recursos adicionales (logging, buckets, notebooks) que deben eliminarse primero para vaciar el compartment.
+
+
+# Paso 5. Resultados útiles del stack
+
+Al finalizar el despliegue, el stack crea un bucket en el compartment `ora26ai`, con un nombre similar a `ora26ai-secrets-*****`.
+
+Dentro de ese bucket, en la carpeta `KEYS`, encontrarás archivos como:
+
+- `oci_config`
+- `oci_api_private_key.pem`
+
+Estos archivos se usarán durante el laboratorio para autenticar distintos servicios de OCI.
+
+Recomendación:
+
+- Descarga estos archivos y guárdalos en una carpeta central del evento para facilitar el trabajo de los participantes.
+- Si prefieres no usar los artefactos generados por el stack, también puedes crear las llaves y credenciales manualmente.
