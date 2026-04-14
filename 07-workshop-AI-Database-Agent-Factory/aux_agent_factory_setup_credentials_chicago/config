@@ -1,0 +1,7 @@
+[DEFAULT]
+user=ocid1.user.oc1..aaaaaaaagbsdk72nw6bydzlx24koayr7ejvvunkdcmhhvetr45fwyil6ol5q
+fingerprint=14:f6:0b:37:e2:84:c1:93:9a:45:c7:b3:6d:1e:8a:f5
+tenancy=ocid1.tenancy.oc1..aaaaaaaawmgrl6cmpuwoy3cqcu3hmimwy7rlkwiais6omfs7oxtwblhf4apq
+region=us-chicago-1
+conpartment=ocid1.compartment.oc1..aaaaaaaaztbtmijprvr2ooneisonmbh7bz2nhg4qfxe7u6aakwdsd3tehzka
+key_file=<path to your private keyfile> # TODO
