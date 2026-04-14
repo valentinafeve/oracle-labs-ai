@@ -111,7 +111,7 @@ Luego haz clic en **Download** en la parte inferior derecha.
 
 ---
 
-## Tarea 2: Instalación de la extensión miniconda, VSCODE y Extensiones de VSCODE
+## Tarea 2: ( ⚠️No Requerido para este laboratorio, es Opcional) Instalación de la extensión miniconda, VSCODE y Extensiones de VSCODE
 ### Instalar miniconda
 Dentro de la maquina virtual abres un explorador (edge) y copias la siguiente url.
 - https://idi1o0a010nx.objectstorage.us-chicago-1.oci.customer-oci.com/n/idi1o0a010nx/b/archivos_publicos/o/Miniconda3-latest-Windows-x86_64.exe<br>
