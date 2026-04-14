@@ -111,8 +111,8 @@ Luego haz clic en **Download** en la parte inferior derecha.
 
 ---
 
-## Tarea 2: ( ⚠️No Requerido para este laboratorio, es Opcional) Instalación de la extensión miniconda, VSCODE y Extensiones de VSCODE
-### Instalar miniconda
+## Tarea 2:  Instalación de la extensión miniconda, VSCODE y Extensiones de VSCODE
+### Instalar miniconda ( ⚠️No Requerido para este laboratorio, es Opcional)
 Dentro de la maquina virtual abres un explorador (edge) y copias la siguiente url.
 - https://idi1o0a010nx.objectstorage.us-chicago-1.oci.customer-oci.com/n/idi1o0a010nx/b/archivos_publicos/o/Miniconda3-latest-Windows-x86_64.exe<br>
 Luego de la descarga solo la ejecutas y vas indicando `Next` en cada paso y lo mantienes tal cual si hacer cambios.
@@ -161,7 +161,7 @@ Esta extensión almacenará los **detalles de conexión** de tu base de datos y 
 
    * **Connection name:** `AIWorld-HOL`
    * **User:** `ADMIN`
-   * **Password:** `[contraseña que se definió en el despliegue de la BD]`
+   * **Password:** `[contraseña que se definió en el despliegue de la BD]` **Welcome123456$** (si usaste el stack automático)
    * Marca la casilla para **guardar la contraseña**.
    * En **Connection Type**, selecciona: `Cloud Wallet`.
    * Haz clic en **Choose file** y selecciona el archivo `.zip` de la cartera descargada en la Tarea 1.
