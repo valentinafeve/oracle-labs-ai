@@ -223,10 +223,14 @@ Para esta demostración se utilizará la **API KEY de OCI**.
 
 2. Configura el **modelo de IA**:
 
+Si no deseas generar esta parte de llaves, te damos los siguientes datos solo por este laboratorio, puedes encontrar datos de conexion en:
+
+[temporal.md](temporal.md) 👈👈🔍👈
+
 - API Provider -> `OpenAI Compatible`
 - Base URL -> ````https://inference.generativeai.us-chicago-1.oci.oraclecloud.com/20231130/actions/v1````
 - OpenAI Compatible API Key -> `sk-XXXXXXXXXXXXXXXXXXXXXXXXXXXXX`
-- Model ID -> `xai.grok-4-1-fast-reasoning`
+- Model ID -> `meta.llama-4-maverick-17b-128e-instruct-fp8`
 
 
 
@@ -435,7 +439,13 @@ Activa el **Plan Mode**.
 En el área de entrada de tareas de Cline, escribe el siguiente mensaje:
 
 ```text
-Usando el servidor MCP SQLcl, muestre mis conexiones a la base de datos.
+Usa el tool list-connections del servidor sqlcl con {"model":"gpt-5.4","definition_type":"ALL","show_details":true}. Luego responde únicamente con la lista de connection_name exactos (respetando mayúsculas/minúsculas), uno por línea, sin explicación.
+```
+
+Aqui debes poner el nombre que salio en el paso anterior <NOMBRE_EXACTO>
+
+```text
+Usa connect con {"connection_name":"<NOMBRE_EXACTO>","model":"gpt-5.4"}.
 ```
 
 ![Figura 6](img/figure6.png)
@@ -536,7 +546,7 @@ Pídele a Cline que cargue los datos en la base de datos.
 En el área de entrada de Cline, escribe:
 
 ```text
-Utiliza run-sqlcl para cargar el script @/trivia-data.sql en la conexión a la base de datos AIWorld-HOL.
+Usa run-sql con el contenido completo de @/trivia-data.sql usando model "gpt-5.4" y executionType "SYNCHRONOUS".
 ```
 
 Revisa el plan: Cline mostrará lo que desea hacer.

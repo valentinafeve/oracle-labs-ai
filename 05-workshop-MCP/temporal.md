@@ -18,7 +18,7 @@ sk-t1i10qYkoaUMtFY6sWzVPdsItgIZL1PYwAg17iczRJMuMP0X
 - MODELO
 
 ```text
-xai.grok-4-1-fast-reasoning
+meta.llama-4-maverick-17b-128e-instruct-fp8
 ```
 
 
